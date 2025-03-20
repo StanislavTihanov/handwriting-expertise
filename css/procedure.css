@@ -1,0 +1,117 @@
+/*----------------------------------procedure--------------------------------*/
+.procedure__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px 20px;
+  margin-bottom: 60px;
+}
+@media (max-width: 768px) {
+  .procedure__body {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+}
+.procedure__photo {
+  flex-basis: 450px;
+}
+.procedure__photo img {
+  border-radius: var(--border-radius-small);
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .procedure__photo img {
+    border-radius: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .procedure__photo {
+    flex-basis: 100%;
+  }
+}
+.procedure__info {
+  flex-basis: 900px;
+}
+.procedure__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+}
+@media (max-width: 992px) {
+  .procedure__inner {
+    flex-wrap: wrap;
+  }
+}
+.procedure__inner:not(:last-child) {
+  margin-bottom: 20px;
+}
+.procedure__inner:last-child {
+  flex-wrap: wrap;
+}
+.procedure__inner .button {
+  flex-wrap: wrap;
+  color: var(--color-black-text);
+  white-space: wrap;
+  text-align: start;
+  flex-basis: 240px;
+}
+@media (max-width: 992px) {
+  .procedure__inner .button {
+    flex-basis: 100%;
+  }
+}
+.procedure__block {
+  border-radius: var(--border-radius-small);
+  padding: 30px;
+}
+.procedure__block span {
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--color-primary);
+  margin-top: 5px;
+  display: block;
+}
+.procedure__block:first-child p {
+  font-family: var(--font-family-m);
+  line-height: 141%;
+}
+.procedure__block--bg {
+  background-color: var(--color-bg);
+}
+.procedure__block--mod {
+  border: 1px solid var(--color-primary);
+  text-align: center;
+}
+.procedure__block--mod .button {
+  color: var(--color-white);
+  margin-bottom: 5px;
+}
+.procedure__block--mod p {
+  font-size: 12px;
+  line-height: 138%;
+}
+.procedure__block--mod p:last-child {
+  color: var(--color-primary);
+}
+.procedure__block--mod span {
+  font-size: clamp(30px, 2.7777777778vw, 40px);
+  line-height: 120%;
+  color: var(--color-secondary);
+  margin-bottom: 16px;
+}
+@media (max-width: 992px) {
+  .procedure__block--mod {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 992px) {
+  .procedure__block {
+    flex-basis: 100%;
+    text-align: center;
+  }
+}
+
+/*----------------------------------procedure--------------------------------*/

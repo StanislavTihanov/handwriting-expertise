@@ -1,0 +1,63 @@
+/*----------------------------------select--------------------------------*/
+@use 'mixins' as *;
+.dropdown {
+    position: relative;
+    &__button {
+        position: relative;
+        display: block;
+        text-align: left;
+        border-radius: 5px;
+        font-weight: 700;
+        padding: 0px 20px 0px 0px;
+        background-color: inherit;
+        color: var(--color-primary);
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            top: 35%;
+            right: 0px;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 8px;
+            border-radius: 2px;
+            background-color: var(--color-primary);
+            pointer-events: none;
+            transform: rotate(45deg);
+        }
+          &::before {
+            right: 5px;
+            transform: rotate(-45deg);
+        }
+      }
+      &__list {
+        display: none;
+        position: absolute;
+        overflow: hidden;
+        width: 200px;
+        left: 0;
+        top: 20px;
+        z-index: 1;
+        background: #F0F5F6;
+        padding: 16px;
+        border-radius: 10px;
+        &--active {
+            display: block;
+        }
+        &_item {
+            border-bottom: 0;
+            cursor: pointer;
+            @include fluid-text(11, 13);
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+      }
+    &__input_hidden {
+        display: none;
+    }
+}
+/*----------------------------------select--------------------------------*/

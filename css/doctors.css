@@ -1,0 +1,22 @@
+/*----------------------------------doctors--------------------------------*/
+.doctors__content {
+  position: relative;
+}
+.doctors__button {
+  position: absolute;
+  top: 10px;
+  left: 33%;
+}
+@media (max-width: 992px) {
+  .doctors__button {
+    left: 35%;
+    top: 0;
+  }
+}
+@media (max-width: 768px) {
+  .doctors__button {
+    position: static;
+  }
+}
+
+/*----------------------------------doctors--------------------------------*/

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/*----------------------------------Переменные--------------------------------*/
+:root {
+  --color-black: #000000;
+  --color-black-text: #1B1B26;
+  --color-white: #FFFFFF;
+  --color-primary: #00A7AA;
+  --color-primary-hover: #E2F5F6;
+  --color-primary-disabled: #80D3D5;
+  --color-secondary: #F85077;
+  --color-secondary-hover: #FFEEF2;
+  --color-secondary-disabled: #FE8EA8;
+  --color-bg: #F0F5F6;
+  --border: 1px solid var(--color-primary);
+  --border-radius: 60px;
+  --border-radius-small: 40px;
+  --font-family-base: "Heliosext", Arial, sans-serif;
+  --font-family-m: "Mulish", Arial, sans-serif;
+  --container-width: 1332px;
+}
+
+/*----------------------------------Переменные--------------------------------*/

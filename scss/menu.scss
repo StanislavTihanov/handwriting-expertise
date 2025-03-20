@@ -1,0 +1,161 @@
+/*----------------------------------menu--------------------------------*/
+@use 'mixins' as *;
+.menu {
+    &>ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        li {
+            font-weight: 700;
+            line-height: 138%;
+            position: relative;
+            @include fluid-text(12, 13);
+            @include hover {
+                .menu__list_wrapper {
+                    display: block;
+                    left: -20px;
+                }
+            }
+        }
+    }
+    &__link {
+        transition: All 0.3s ease 0s;
+        @include hover {
+            color: var(--color-primary);
+        }
+    }
+    &__button {
+        cursor: pointer;
+        padding-right: 15px;
+        transition: All 0.3s ease 0s;
+        &::after,
+        &::before {
+            position: absolute;
+            content: '';
+            width: 6px;
+            height: 2px;
+            top: 8px;
+            right: 0;
+            background-color: var(--color-black-text);
+            transition: transform 0.2s ease-out;
+            border-radius: 5px;
+        }
+        &::after {
+            transform: rotate(45deg);
+            right: 4px;
+        }
+        &::before {
+            transform: rotate(-45deg);
+        }
+        @include hover {
+            color: var(--color-primary);
+            &::after {
+                transform: rotate(-45deg);
+                background-color: var(--color-primary);
+            }
+            &::before {
+                transform: rotate(45deg);
+                background-color: var(--color-primary);
+            }
+            li {
+                color: var(--color-black-text);
+            }
+        }
+        @include table {
+            padding-right: 30px;
+        }
+    }
+    &__list {
+        &_wrapper {
+            position: absolute;
+            display: none;
+            @include table {
+                &.open {
+                    display: block;
+                    position: static;
+                }
+            }
+        }
+        background-color: var(--color-white);
+        box-shadow: 0 0 16px 0 rgba(17, 31, 57, 0.1);
+        border-radius: 24px;
+        width: 320px;
+        padding: 16px;
+        margin-top: 20px;
+        @include table {
+            position: static;
+            width: 100%;
+            padding: 10px;
+            border-radius: 16px;
+            margin-top: 10px;
+        }
+        li {
+            font-family: var(--font-family-m);
+            font-weight: 600;
+            @include fluid-text(12, 15);
+            line-height: 133%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+            padding-left: 25px;
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+            &::before {
+                position: absolute;
+                content: '';
+                width: 6px;
+                height: 6px;
+                top: 35%;
+                left: 10px;
+                border-radius: 50%;
+                background-color: #63D7DF;
+            }
+            img {
+                width: 15px;
+                opacity: 0;
+                transition: all 0.3s;
+            }
+            @include hover {
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    @include table {
+        position: fixed;
+        left: 0;
+        top: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--color-white);
+        padding: 50px 20px; 
+        transition: All 0.5s ease 0s;
+        overflow: auto;
+        z-index: 9;
+        &._active{
+            top: 0;
+        }
+        &__list-item:not(:last-child){
+            margin-bottom: 32px;
+        }
+        &>ul {
+            display: block;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        ul li {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+/*----------------------------------menu--------------------------------*/

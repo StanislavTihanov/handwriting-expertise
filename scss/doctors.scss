@@ -1,0 +1,21 @@
+/*----------------------------------doctors--------------------------------*/
+@use 'mixins' as *;
+.doctors {
+    &__content {
+        position: relative;
+    }
+    &__button {
+        position: absolute;
+        top: 10px;
+        left: 33%;
+        @include table {
+            left: 35%;
+            top: 0;
+        }
+        @include mobile {
+            position: static;
+        }
+    }
+}
+
+/*----------------------------------doctors--------------------------------*/

@@ -1,0 +1,73 @@
+/*----------------------------------card--------------------------------*/
+@use 'mixins' as *;
+.card {
+    height: 100%;
+    display: grid;
+    &__inner {
+        position: relative;
+        margin-bottom: 24px;
+    }
+    &__photo {
+        position: relative;
+        background-color: var(--color-bg);
+        border-radius: 200px 70px 250px 200px;
+        overflow: hidden;
+        height: 100%;
+        padding-top: 280px;
+        img {
+           max-width: 230px;
+           left: 50%;
+           top: 50%;
+           transform: translate(-50%, -50%);
+           @include mobile {
+            max-width: 185px;
+           }
+        }
+        margin-bottom: 24px;
+        @include hover {
+            .arrow__pulse {
+                opacity: 1;
+            }
+            .arrow__pulse::after {
+                animation: pulse 2s ease-in-out infinite;
+            }
+        }
+        @include mobile {
+            padding-top: 200px;
+        }
+    }
+    &__link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    &__name {
+        margin-bottom: 10px;
+        transition: all 0.3s;
+        @include hover {
+            color: var(--color-primary);
+            transition: all 0.3s;
+        }
+    }
+    &__post {
+        color: var(--color-primary);
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    &__experience {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        @include fluid-text(14, 15);
+        font-weight: 600;
+        line-height: 141%;
+        font-family: var(--font-family-m);
+    }
+    &__description {
+        @include fluid-text(14, 15);
+        font-weight: 500;
+    }
+  }
+
+/*----------------------------------card--------------------------------*/

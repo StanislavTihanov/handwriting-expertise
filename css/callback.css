@@ -1,0 +1,100 @@
+/*----------------------------------callback--------------------------------*/
+.callback {
+  padding: 64px 0px;
+}
+@media (max-width: 768px) {
+  .callback {
+    padding: 30px 0px;
+  }
+}
+.callback__wrapper {
+  position: relative;
+  border-radius: var(--border-radius);
+}
+@media (max-width: 768px) {
+  .callback__wrapper {
+    border-radius: 32px;
+    background: linear-gradient(206deg, #009caa 7.83%, #a9dcde 74.83%, #73becd 96.04%);
+    border-radius: 32px;
+  }
+}
+.callback__content--mod .callback__info p {
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-family: var(--font-family-m);
+  line-height: 140%;
+  font-size: clamp(16px, 1.1805555556vw, 17px);
+}
+.callback__content--mod .callback__photo {
+  margin-top: 40px;
+}
+@media (max-width: 768px) {
+  .callback__content--mod .callback__photo {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .callback__content--mod .callback__bg img {
+    display: none;
+  }
+}
+.callback__content--mod .callback__wrapper {
+  overflow: hidden;
+}
+.callback__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 200px;
+  padding: 0px 20px;
+}
+@media (max-width: 992px) {
+  .callback__body {
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .callback__body {
+    flex-wrap: wrap;
+    padding: 20px 20px 0px 20px;
+  }
+}
+.callback__info {
+  flex-basis: 550px;
+  color: var(--color-white);
+}
+.callback__info p {
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-family: var(--font-family-m);
+  line-height: 140%;
+  font-size: clamp(18px, 1.3888888889vw, 20px);
+}
+.callback__photo {
+  flex-basis: 340px;
+  margin-top: -50px;
+}
+@media (max-width: 768px) {
+  .callback__photo {
+    margin-top: 0px;
+  }
+}
+.callback__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.callback__bg img {
+  border-radius: var(--border-radius);
+}
+@media (max-width: 768px) {
+  .callback__bg img {
+    border-radius: 32px;
+  }
+}
+
+/*----------------------------------callback--------------------------------*/

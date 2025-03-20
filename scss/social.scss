@@ -1,0 +1,119 @@
+/*----------------------------------social--------------------------------*/
+@use 'mixins' as *;
+.social {
+    &__content {
+        &--mod {
+            .social__body {
+                background: linear-gradient(131deg, #487be8 0%, #59aaec 100%);
+                display: block;
+                position: relative;
+                padding: 48px 50px;
+                @include mobile {
+                    padding: 32px 16px;
+                }
+            }
+            .social__photo {
+                position: absolute;
+                bottom: 60%;
+                right: 20px;
+                @include table {
+                    bottom: 20px;
+                }
+            }
+            .social__link {
+                padding: 8px 12px;
+                &:nth-child(2) {
+                    @include mobile {
+                        max-width: 120px;
+                    }
+                }
+                &:nth-child(3) {
+                    @include mobile {
+                        max-width: 100px;
+                        order: -1;
+                    }
+                }
+                &:nth-child(4) {
+                    @include mobile {
+                        max-width: 100px;
+                    }
+                }
+                @include mobile {
+                    max-width: 180px;
+                }
+            }
+            .social__info p {
+                max-width: 100%;
+            }
+        }
+    }
+    &__body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0px 70px;
+        background: linear-gradient(131deg, #1d90ef 0%, #7b5fe3 100%); 
+        border-radius: var(--border-radius);
+        padding: 20px 20px 0px 20px;
+        @include table {
+            border-radius: 32px;
+            flex-wrap: wrap;
+        }
+        @include mobile {
+            padding: 24px 16px 0px 16px;
+        }
+    }
+    &__info {
+        color: var(--color-white);
+        flex-basis: 835px;
+        margin-bottom: 10px;
+        p {
+            font-weight: 600;
+            line-height: 141%;
+            font-family: var(--font-family-m);
+            max-width: 700px;
+            margin-bottom: 42px;
+            @include mobile {
+                margin-bottom: 16px;
+            }
+        }
+    }
+    &__links {
+        display: flex;
+        align-items: stretch;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    &__link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 7px;
+        font-size: 13px;
+        background-color: var(--color-white);
+        padding: 14px;
+        color: var(--color-black-text);
+        border-radius: 16px;
+        transition: all 0.3s;
+        @include hover {
+            transition: all 0.3s;
+            background-color: var(--color-primary-hover);
+        }
+        @include mobile {
+            padding: 8px;
+            border-radius: 12px;
+        }
+    }
+    &__photo {
+        margin-top: -65px;
+        @include table {
+            margin-top: -20px;
+        }
+        @include mobile {
+            max-width: 170px;
+            margin-top: -80px;
+            margin-left: auto;
+        }
+    }
+}
+/*----------------------------------social--------------------------------*/

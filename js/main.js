@@ -56,28 +56,83 @@ window.addEventListener('scroll', () => {
 
 
 //------------------------------------------------------------------------search
-//const searchButtons = document.querySelectorAll('.search__btn');
-//const searchWindows = document.querySelectorAll('.search__window');
-//
-//searchButtons.forEach((searchBtn, index) => {
-//  const searchWindow = searchWindows[index]; // Привязываем соответствующее окно к каждой кнопке
-//
-//  searchBtn.addEventListener("click", function (e) {
-//    e.stopPropagation();
-//    searchWindow.classList.toggle('_act'); // Открываем/закрываем конкретное окно поиска
-//  });
-//
-//  document.addEventListener("click", function (e) {
-//    if (!searchBtn.contains(e.target) && !searchWindow.contains(e.target)) {
-//      searchWindow.classList.remove('_act'); // Закрываем окно, если клик вне кнопки или окна
-//    }
-//  });
-//});
+const searchButtons = document.querySelectorAll('.search__btn');
+const searchWindows = document.querySelectorAll('.search__window');
+const searchCloseButtons = document.querySelectorAll('.search__label_close');
 
+searchButtons.forEach((searchBtn, index) => {
+  const searchWindow = searchWindows[index]; // Привязываем соответствующее окно к каждой кнопке
+  const searchClose = searchCloseButtons[index]; // Привязываем соответствующую кнопку закрытия
+  const searchInput = searchWindow.querySelector('.search__label_input'); // Находим поле ввода внутри окна
+
+  // Открытие/закрытие окна при клике на кнопку поиска
+  searchBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    searchWindow.classList.toggle('_act'); // Открываем/закрываем конкретное окно поиска
+  });
+
+  // Закрытие окна при клике на кнопку закрытия
+  searchClose.addEventListener("click", function (e) {
+    e.stopPropagation();
+    searchWindow.classList.remove('_act'); // Закрываем окно при клике на кнопку закрытия
+  });
+
+  // Закрытие окна при клике вне его области
+  document.addEventListener("click", function (e) {
+    if (!searchBtn.contains(e.target) && !searchWindow.contains(e.target)) {
+      searchWindow.classList.remove('_act'); // Закрываем окно, если клик вне кнопки или окна
+    }
+  });
+
+  // Изменение цвета бордера при вводе текста
+  searchInput.addEventListener('input', function () {
+    if (this.value.trim() !== '') {
+      searchWindow.classList.add('search__window--active'); // Добавляем класс, если поле не пустое
+    } else {
+      searchWindow.classList.remove('search__window--active'); // Убираем класс, если поле пустое
+    }
+  });
+});
 //------------------------------------------------------------------------search
 
 
+//------------------------------------------------------------------------выпадающие списки в хедере
+const menuButtons = document.querySelectorAll('.menu__button');
+const menuLists = document.querySelectorAll('.menu__list_wrapper');
 
+// Функция для закрытия всех списков
+const closeAllMenus = () => {
+  menuLists.forEach(list => list.classList.remove('open'));
+  menuButtons.forEach(button => button.classList.remove('open'));
+};
+
+// Обработчик клика на кнопки
+menuButtons.forEach((button, index) => {
+  button.addEventListener('click', (event) => {
+    event.stopPropagation(); // Останавливаем всплытие, чтобы не сработал document.click
+    const isOpen = menuLists[index].classList.contains('open');
+
+    // Закрываем все меню перед открытием текущего
+    closeAllMenus();
+
+    // Открываем текущее меню, если оно было закрыто
+    if (!isOpen) {
+      menuLists[index].classList.add('open');
+      button.classList.add('open');
+    }
+  });
+});
+
+// Обработчик клика на документ
+document.addEventListener('click', (event) => {
+  const isClickInsideMenu = event.target.closest('.menu__list') || event.target.closest('.menu__button');
+
+  // Если клик был вне меню и кнопки, закрываем все меню
+  if (!isClickInsideMenu) {
+    closeAllMenus();
+  }
+});
+//------------------------------------------------------------------------выпадающие списки в хедере
 
 
 //------------------------------------------------------------------------Меню-Бургер
@@ -99,199 +154,377 @@ document.addEventListener ('click', (e) => {
 })
 //------------------------------------------------------------------------закрытие меню при клике вне его
 
+//----------------------------------------------------------------------код для открытия меню в футере
+const footerTitles = document.querySelectorAll('.footer__title');
 
-//------------------------------------------------------------------------Прокрутка при клике
-//let buttons = document.querySelectorAll('.menu__link');
-//
-//buttons.forEach((elem)=>{
-//  elem.addEventListener('click',()=>{
-//    menuBody.classList.remove('_active');
-//    burgerMenu.classList.remove('_active');
-//  })
-//})
-//
-//const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
-//
-//if (menuLinks.length > 0) {
-//  menuLinks.forEach(menuLink => {
-//    menuLink.addEventListener("click", onMenuLinkClick);
-//  });
-//  function onMenuLinkClick(e) {
-//    const menuLink = e.target;
-//    if(menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
-//        const gotoBlock = document.querySelector(menuLink.dataset.goto);
-//        const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY - document.querySelector('header').offsetHeight;
-//      
-//        window.scrollTo({
-//        top:gotoBlockValue,
-//        behavior: "smooth"
-//      });
-//      e.preventDefault();
-//    }
-//  }
-//}
-//------------------------------------------------------------------------Прокрутка при клике
+footerTitles.forEach(title => {
+    title.addEventListener('click', () => {
+        // Находим соответствующий элемент .footer__list
+        const footerList = title.nextElementSibling;
 
-//------------------------------------------------------------------------Слайдер
-//const mainSlider = document.querySelector('.main-slider');
-//if (mainSlider) {
-//  new Swiper(mainSlider, {
-//    direction: 'horizontal',
-//    loop: true,
-//    slidesPerView: 3,
-//    spaceBetween: 20,
-//    speed: 1000,
-//    autoHeight: false,
-//    navigation: {
-//      nextEl: '.swiper-button-next',
-//      prevEl: '.swiper-button-prev',
-//    },
-//    pagination: {
-//      el: '.swiper-pagination',
-//      clickable: true,
-//    },
-//    breakpoints: {
-//      320: {
-//        slidesPerView: 1,
-//      },
-//      640: {
-//        slidesPerView: 2,
-//      },
-//      980: {
-//        slidesPerView: 3,
-//      }
-//    }
-//  });
-//}
-//------------------------------------------------------------------------Слайдер
+        // Проверяем, что следующий элемент существует и имеет класс .footer__list
+        if (footerList && footerList.classList.contains('footer__list')) {
+            // Переключаем класс 'view' у .footer__title и .footer__list
+            title.classList.toggle('view');
+            footerList.classList.toggle('view');
+        }
+    });
+});
+//----------------------------------------------------------------------код для открытия меню в футере
+
+
+//------------------------------------------------------------------------Fancybox
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof Fancybox !== "undefined" && typeof Fancybox.bind === "function") {
+      Fancybox.bind("[data-fancybox]", {
+          // Кастомные опции
+      });
+  }
+});
+//------------------------------------------------------------------------Fancybox
+
+
+//------------------------------------------------------------------------Слайдеры
+// Находим все слайдеры на странице
+const sliders = document.querySelectorAll('.slider');
+sliders.forEach((slider, index) => {
+  // Создаем уникальные классы для навигации каждого слайдера
+  const prevButton = `.swiper-button-prev-${index + 1}`;
+  const nextButton = `.swiper-button-next-${index + 1}`;
+
+  // Инициализируем Swiper для каждого слайдера
+  new Swiper(slider, {
+    direction: 'horizontal',
+    loop: false,
+    spaceBetween: 10,
+    speed: 1000,
+    autoHeight: false,
+    navigation: {
+      prevEl: prevButton,
+      nextEl: nextButton,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1.2,
+      },
+      640: {
+        slidesPerView: 2,
+      },
+      980: {
+        slidesPerView: 3,
+      }
+    }
+  });
+});
+
+const twoSlide = document.querySelectorAll('.two-slide');
+twoSlide.forEach((twoSlide, index) => {
+  // Создаем уникальные классы для навигации каждого слайдера
+  const prevButton = `.swiper-button-p-${index + 1}`;
+  const nextButton = `.swiper-button-n-${index + 1}`;
+
+  // Инициализируем Swiper для каждого слайдера
+  new Swiper(twoSlide, {
+    direction: 'horizontal',
+    loop: false,
+    spaceBetween: 24,
+    speed: 1000,
+    autoHeight: false,
+    navigation: {
+      prevEl: prevButton,
+      nextEl: nextButton,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1.1,
+        spaceBetween: 16,
+      },
+      640: {
+        slidesPerView: 1,
+      },
+      980: {
+        slidesPerView: 2,
+      }
+    }
+  });
+});
+const oneSlide = document.querySelectorAll('.one-slide');
+oneSlide.forEach((oneSlide, index) => {
+  // Создаем уникальные классы для навигации каждого слайдера
+  const prevButton = `.swiper-button-pr-${index + 1}`;
+  const nextButton = `.swiper-button-nx-${index + 1}`;
+
+  // Инициализируем Swiper для каждого слайдера
+  new Swiper(oneSlide, {
+    direction: 'horizontal',
+    loop: false,
+    spaceBetween: 20,
+    speed: 1000,
+    autoHeight: false,
+    slidesPerView: 1,
+    navigation: {
+      prevEl: prevButton,
+      nextEl: nextButton,
+    },
+  });
+});
+//------------------------------------------------------------------------Слайдеры
+
+//-----------------------------------------------------------------------поиск врачей по словам
+const searchInput = document.getElementById('searchInput');
+
+if (searchInput) { // Проверяем, существует ли элемент с id="searchInput"
+  searchInput.addEventListener('input', function() {
+    const searchText = this.value.toLowerCase(); // Получаем текст из инпута и приводим к нижнему регистру
+    const filterItems = document.querySelectorAll('.filter__item'); // Находим все блоки .filter__item
+
+    filterItems.forEach(item => {
+      const links = item.querySelectorAll('a'); // Находим все элементы <a> внутри текущего .filter__item
+      const header = item.querySelector('h3'); // Находим заголовок <h3> внутри текущего .filter__item
+
+      let hasMatch = false; // Флаг для проверки наличия совпадений в текущем .filter__item
+
+      links.forEach(link => {
+        const linkText = link.textContent.toLowerCase(); // Получаем текст элемента <a> и приводим к нижнему регистру
+        if (searchText === '' || !linkText.includes(searchText)) {
+          // Если инпут пустой или текст не совпадает, добавляем opacity: 0.5 и убираем filter__color
+          link.style.opacity = '0.5';
+          link.classList.remove('filter__color');
+        } else {
+          // Если текст совпадает, убираем opacity и добавляем filter__color
+          link.style.opacity = '1';
+          link.classList.add('filter__color');
+          hasMatch = true; // Устанавливаем флаг, что есть совпадение
+        }
+      });
+      // Управляем opacity для заголовка <h3>
+      if (hasMatch) {
+        header.style.opacity = '1'; // Если есть совпадение, заголовок остается полностью видимым
+      } else {
+        header.style.opacity = '0.5'; // Если совпадений нет, заголовок становится полупрозрачным
+      }
+    });
+    // Если инпут пустой, возвращаем всем элементам opacity: 1 и убираем highlight
+    if (searchText === '') {
+      const allLinks = document.querySelectorAll('.filter__item a');
+      const allHeaders = document.querySelectorAll('.filter__item h3');
+      allLinks.forEach(link => {
+        link.style.opacity = '1';
+        link.classList.remove('filter__color');
+      });
+      allHeaders.forEach(header => header.style.opacity = '1');
+    }
+  });
+}
+//-----------------------------------------------------------------------поиск врачей по словам
 
 
 //-----------------------------------------------------------------------сортировка по атрибутам
 
-//class FilterGallery {
-//  
-//  constructor() {
-//    // Находим элементы меню и контейнер с постами
-//    this.filterMenuList = document.querySelectorAll('.filtermenu__list li');
-//    this.container = document.querySelector('.filtermenu__container');
-//    this.posts = Array.from(this.container.querySelectorAll('.post'));  // Собираем все посты один раз в массив
-//    
-//    this.updateMenu('all');
-//    this.filterMenuList.forEach(item => item.addEventListener('click', (event) => this.onClickFilterMenu(event)));
-//  }
-//
-//  onClickFilterMenu(event) {
-//    const target = event.target.closest('li');  // Используем closest чтобы найти li
-//    const targetFilter = target.getAttribute('data-filter');
-//
-//    this.updateMenu(targetFilter);
-//    this.updateGallery(targetFilter);
-//  }
-//
-//  updateMenu(targetFilter) {
-//    this.filterMenuList.forEach(item => item.classList.remove('active_'));
-//    const activeItem = Array.from(this.filterMenuList).find(item => item.getAttribute('data-filter') === targetFilter);
-//    if (activeItem) activeItem.classList.add('active_');
-//  }
-//
-//  updateGallery(targetFilter) {
-//    // Оптимизация через фильтрацию всех постов разом
-//    const postsToShow = targetFilter === 'all'
-//      ? this.posts
-//      : this.posts.filter(post => post.classList.contains(targetFilter));
-//    
-//    const postsToHide = this.posts.filter(post => !postsToShow.includes(post));
-//
-//    // Анимация скрытия и показа
-//    this.container.style.opacity = 0;
-//    setTimeout(() => {
-//      postsToHide.forEach(post => post.style.display = 'none');
-//      postsToShow.forEach(post => post.style.display = '');
-//      this.container.style.opacity = 1;
-//    }, 300);
-//  }
-//}
-//const filterGallery = new FilterGallery();
+class FilterGallery {
+  constructor() {
+    // Проверяем, существует ли элемент с классом filtermenu
+    if (!document.querySelector('.filtermenu')) {
+      return; // Если нет, прекращаем выполнение
+    }
+
+    // Находим элементы меню и контейнер с постами
+    this.filterMenuList = document.querySelectorAll('.filtermenu__list li');
+    this.container = document.querySelector('.filtermenu__container');
+    this.posts = Array.from(this.container.querySelectorAll('.post'));  // Собираем все посты один раз в массив
+    
+    // По умолчанию показываем блок с классом surgery
+    this.updateMenu('filtermenu__title_1');
+    this.updateGallery('filtermenu__title_1');
+    
+    this.filterMenuList.forEach(item => item.addEventListener('click', (event) => this.onClickFilterMenu(event)));
+  }
+
+  onClickFilterMenu(event) {
+    const target = event.target.closest('li');  // Используем closest чтобы найти li
+    const targetFilter = target.getAttribute('data-filter');
+
+    this.updateMenu(targetFilter);
+    this.updateGallery(targetFilter);
+  }
+
+  updateMenu(targetFilter) {
+    this.filterMenuList.forEach(item => item.classList.remove('active_'));
+    const activeItem = Array.from(this.filterMenuList).find(item => item.getAttribute('data-filter') === targetFilter);
+    if (activeItem) activeItem.classList.add('active_');
+  }
+
+  updateGallery(targetFilter) {
+    // Оптимизация через фильтрацию всех постов разом
+    const postsToShow = targetFilter === 'all'
+      ? this.posts
+      : this.posts.filter(post => post.classList.contains(targetFilter));
+    
+    const postsToHide = this.posts.filter(post => !postsToShow.includes(post));
+
+    // Анимация скрытия и показа
+    this.container.style.opacity = 0;
+    setTimeout(() => {
+      postsToHide.forEach(post => post.style.display = 'none');
+      postsToShow.forEach(post => post.style.display = '');
+      this.container.style.opacity = 1;
+    }, 300);
+  }
+}
+
+// Создаем экземпляр FilterGallery только если есть элемент с классом filtermenu
+if (document.querySelector('.filtermenu')) {
+  const filterGallery = new FilterGallery();
+}
 
 
 //-----------------------------------------------------------------------сортировка по атрибутам
 
-//------------------------------------------------------------------------select выпадающий список
-//document.querySelectorAll('.dropdown').forEach(function(dropDownWrapper) {
-//  const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
-//  const dropDownList = dropDownWrapper.querySelector('.dropdown__list');
-//  const dropDownListItems = dropDownList.querySelectorAll('.dropdown__list-item');
-//  const dropDownInput = dropDownWrapper.querySelector('.dropdown__input-hidden');
-//
-//  // Функция для закрытия текущего дропдауна
-//  function closeCurrentDropdown() {
-//    dropDownList.classList.remove('dropdown__list--active');
-//    dropDownBtn.classList.remove('dropdown__button--active');
-//  }
-//
-//  // Открыть/закрыть текущий дропдаун
-//  dropDownBtn.addEventListener('click', function (e) {
-//    e.stopPropagation(); // Остановить всплытие события
-//    e.preventDefault(); // Предотвращаем отправку формы
-//    const isActive = dropDownList.classList.contains('dropdown__list--active');
-//
-//    // Закрываем все дропдауны перед открытием текущего
-//    document.querySelectorAll('.dropdown__list--active').forEach(function(activeList) {
-//      activeList.classList.remove('dropdown__list--active');
-//    });
-//    document.querySelectorAll('.dropdown__button--active').forEach(function(activeButton) {
-//      activeButton.classList.remove('dropdown__button--active');
-//    });
-//
-//    // Если текущий дропдаун не был активным, открываем его
-//    if (!isActive) {
-//      dropDownList.classList.add('dropdown__list--active');
-//      dropDownBtn.classList.add('dropdown__button--active');
-//    }
-//  });
-//
-//  // Выбор элемента списка
-//  dropDownListItems.forEach(function (listItem) {
-//    listItem.addEventListener('click', function (e) {
-//      e.stopPropagation(); // Остановить всплытие события
-//      e.preventDefault(); // Предотвращаем отправку формы
-//      dropDownBtn.innerText = this.innerText;
-//      dropDownBtn.focus();
-//      dropDownInput.value = this.dataset.value;
-//      closeCurrentDropdown(); // Закрываем текущий дропдаун после выбора
-//    });
-//  });
-//
-//  // Закрытие при клике снаружи
-//  document.addEventListener('click', function (e) {
-//    if (!dropDownWrapper.contains(e.target)) {
-//      closeCurrentDropdown(); // Закрываем только текущий дропдаун
-//    }
-//  });
-//
-//  // Закрытие при нажатии Tab или Escape
-//  document.addEventListener('keydown', function (e) {
-//    if (e.key === 'Tab' || e.key === 'Escape') {
-//      closeCurrentDropdown(); // Закрываем только текущий дропдаун
-//    }
-//  });
-//});
-//
-//// Инициализация кнопки после загрузки
-//function initMyButton() {
-//  const myButton = document.getElementById('myButton');
-//  
-//  if (myButton && myButton.style.display !== 'none') {
-//    myButton.addEventListener('click', function(event) {
-//      event.preventDefault();
-//    });
-//  }
-//}
-//window.onload = initMyButton;
+//-----------------------------------------------------------------------кон для анимации иконак в блоке ваше здоровье
+document.addEventListener('scroll', () => {
+  // Вызываем функцию обновления позиции иконок с фиктивным событием мыши
+  updateIconsPosition({ clientX: 0, clientY: 0 });
+});
+
+function updateIconsPosition(e) {
+  const icons = document.querySelectorAll('.mission__icon');
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+
+  icons.forEach((icon, index) => {
+    const rect = icon.getBoundingClientRect();
+    const iconX = rect.left + rect.width / 2;
+    const iconY = rect.top + rect.height / 2;
+
+    const deltaX = mouseX - iconX;
+    const deltaY = mouseY - iconY;
+
+    // Настройте силу смещения (можно регулировать)
+    const strength = 0.05;
+
+    // Применяем смещение в зависимости от положения курсора
+    const translateX = deltaX * strength;
+    const translateY = deltaY * strength;
+
+    // Добавляем разные направления для каждой иконки
+    if (index % 2 === 0) {
+      icon.style.transform = `translate(${translateX}px, ${translateY}px)`;
+    } else {
+      icon.style.transform = `translate(${-translateX}px, ${-translateY}px)`;
+    }
+  });
+}
+//-----------------------------------------------------------------------кон для анимации иконак в блоке ваше здоровье
+
+
+
 
 //------------------------------------------------------------------------select выпадающий список
+document.querySelectorAll('.dropdown').forEach(function(dropDownWrapper) {
+  const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
+  const dropDownList = dropDownWrapper.querySelector('.dropdown__list');
+  const dropDownListItems = dropDownList.querySelectorAll('.dropdown__list_item');
+  const dropDownInput = dropDownWrapper.querySelector('.dropdown__input_hidden');
 
+  // Функция для закрытия текущего дропдауна
+  function closeCurrentDropdown() {
+    dropDownList.classList.remove('dropdown__list--active');
+    dropDownBtn.classList.remove('dropdown__button--active');
+  }
 
+  // Открыть/закрыть текущий дропдаун
+  dropDownBtn.addEventListener('click', function (e) {
+    e.stopPropagation(); // Остановить всплытие события
+    e.preventDefault(); // Предотвращаем отправку формы
+    const isActive = dropDownList.classList.contains('dropdown__list--active');
+
+    // Закрываем все дропдауны перед открытием текущего
+    document.querySelectorAll('.dropdown__list--active').forEach(function(activeList) {
+      activeList.classList.remove('dropdown__list--active');
+    });
+    document.querySelectorAll('.dropdown__button--active').forEach(function(activeButton) {
+      activeButton.classList.remove('dropdown__button--active');
+    });
+
+    // Если текущий дропдаун не был активным, открываем его
+    if (!isActive) {
+      dropDownList.classList.add('dropdown__list--active');
+      dropDownBtn.classList.add('dropdown__button--active');
+    }
+  });
+
+  // Выбор элемента списка
+  dropDownListItems.forEach(function (listItem) {
+    listItem.addEventListener('click', function (e) {
+      e.stopPropagation(); // Остановить всплытие события
+      e.preventDefault(); // Предотвращаем отправку формы
+      dropDownBtn.innerText = this.innerText;
+      dropDownBtn.focus();
+      dropDownInput.value = this.dataset.value;
+      closeCurrentDropdown(); // Закрываем текущий дропдаун после выбора
+    });
+  });
+
+  // Закрытие при клике снаружи
+  document.addEventListener('click', function (e) {
+    if (!dropDownWrapper.contains(e.target)) {
+      closeCurrentDropdown(); // Закрываем только текущий дропдаун
+    }
+  });
+
+  // Закрытие при нажатии Tab или Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Tab' || e.key === 'Escape') {
+      closeCurrentDropdown(); // Закрываем только текущий дропдаун
+    }
+  });
+});
+
+// Инициализация кнопки после загрузки
+function initMyButton() {
+  const myButton = document.getElementById('myButton');
+  
+  if (myButton && myButton.style.display !== 'none') {
+    myButton.addEventListener('click', function(event) {
+      event.preventDefault();
+    });
+  }
+}
+window.onload = initMyButton;
+//----------------------------------------------------очистка выпадающего списка и других инпутов
+const chooseReset = document.querySelector('.choose__reset');
+if (chooseReset) { // Проверяем, существует ли элемент с классом .choose__reset
+  chooseReset.addEventListener('click', function(e) {
+    // Очищаем все выпадающие списки
+    document.querySelectorAll('.dropdown').forEach(function(dropDownWrapper) {
+      const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
+      const dropDownInput = dropDownWrapper.querySelector('.dropdown__input_hidden');
+
+      // Сбрасываем текст кнопки и значение скрытого input
+      dropDownBtn.innerText = 'выберите'; // Или любой другой текст по умолчанию
+      dropDownInput.value = ''; // Очищаем значение input
+    });
+  });
+}
+//----------------------------------------------------очистка выпадающего списка и других инпутов
+
+//------------------------------------------------------------------------select выпадающий список
+
+//------------------------------------------------------------------------появление контента при клике на кнопку more
+const buttonMore = document.querySelectorAll('.button-more');
+buttonMore.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Переключаем класс 'view' у самой кнопки
+        btn.classList.toggle('view');
+        // Находим все элементы с классом .content-more
+        const contentMoreElements = document.querySelectorAll('.content-more');
+        // Переключаем класс 'view' у всех элементов .content-more
+        contentMoreElements.forEach(content => {
+            content.classList.toggle('view');
+        });
+    });
+});
+//------------------------------------------------------------------------появление контента при клике на кнопку more
 //------------------------------------------------------------------------popup
 //const popupLinks = document.querySelectorAll('.popup-link');
 //const body = document.querySelector('body');
@@ -594,167 +827,167 @@ document.addEventListener ('click', (e) => {
 ////------------------------------------------------------------------------Обработка форм
 //------------------------------------------------------------------------Quiz
 
-document.addEventListener('DOMContentLoaded', () => {
-  const quizBody = document.querySelector('.quiz__body');
-  const quizStart = document.querySelector('.quiz__start');
-  const formQuiz = document.querySelector('.quiz-form');
-  const formItems = formQuiz.querySelectorAll('fieldset');
-  const formBtnNext = formQuiz.querySelectorAll('.quiz-form__btn-next');
-  const formBtnPrev = formQuiz.querySelectorAll('.quiz-form__btn-prev');
-  const overlay = document.querySelector('.overlay');
-  const pastTestButton = document.querySelector('.pas__test-button');
-
-  const answersObj = {
-    step0: { question: '', answers: [] },
-    step1: { question: '', answers: [] },
-    step2: { question: '', answers: [] },
-    step3: { question: '', answers: [] },
-    step4: { name: "", phone: "", email: "", call: "" },
-  };
-
-  let questionNumb = 1;
-
-  // Инициализация квиза
-  quizBody.style.display = "none";
-  overlay.style.display = "none";
-
-  quizStart.addEventListener('click', () => {
-    quizBody.style.display = "block";
-    quizStart.style.display = "none";
-    questionCounter(1);
-  });
-
-  pastTestButton.addEventListener('click', () => {
-    resetQuiz();
-    overlay.style.display = "block";
-    quizBody.style.display = "block";
-  });
-
-  function questionCounter(index) {
-    const quizIndicator = document.querySelector('.quiz-indicator');
-    quizIndicator.innerHTML = `${index} / ${formItems.length}`;
-
-    const progress = document.querySelector(".quiz__progress-inner");
-    progress.style.width = `${Math.round((index / formItems.length) * 100)}%`;
-  }
-
-  function resetQuiz() {
-    formItems.forEach((formItem, index) => {
-      formItem.style.display = index === 0 ? "block" : "none";
-      const inputs = formItem.querySelectorAll("input");
-      inputs.forEach(input => {
-        input.checked = false;
-        input.parentNode.classList.remove("active-radio", "active-checkbox");
-      });
-    });
-    formBtnNext.forEach(btn => btn.disabled = true);
-    questionNumb = 1;
-    questionCounter(questionNumb);
-  }
-
-  formBtnPrev.forEach((btn, i) => {
-    btn.addEventListener('click', (event) => {
-      event.preventDefault();
-      formItems[i + 1].style.display = "none";
-      formItems[i].style.display = "block";
-      questionNumb--;
-      questionCounter(questionNumb);
-    });
-  });
-
-  formBtnNext.forEach((btn, btnIndex) => {
-    btn.addEventListener('click', (event) => {
-      event.preventDefault();
-      formItems[btnIndex].style.display = "none";
-      formItems[btnIndex + 1].style.display = "block";
-      questionNumb++;
-      questionCounter(questionNumb);
-    });
-    btn.disabled = true;
-  });
-
-  formItems.forEach((formItem, formItemIndex) => {
-    if (formItemIndex === 0) {
-      formItem.style.display = "block";
-    } else {
-      formItem.style.display = "none";
-    }
-
-    if (formItemIndex !== formItems.length - 1) {
-      const itemTitle = formItem.querySelector('.quiz-form__title');
-      answersObj[`step${formItemIndex}`].question = itemTitle.textContent;
-
-      formItem.addEventListener('change', (event) => {
-        const target = event.target;
-        const inputsChecked = formItem.querySelectorAll("input:checked");
-
-        answersObj[`step${formItemIndex}`].answers = Array.from(inputsChecked).map(input => input.value);
-        formBtnNext[formItemIndex].disabled = inputsChecked.length === 0;
-
-        if (target.classList.contains("quiz-form__radio")) {
-          formItem.querySelectorAll(".quiz-form__radio").forEach(input => {
-            input.parentNode.classList.toggle("active-radio", input === target);
-          });
-        } else if (target.classList.contains("quiz-form__checkbox")) {
-          target.parentNode.classList.toggle("active-checkbox");
-        }
-      });
-    }
-  });
-
-  const nameInput = document.getElementById('quiz-name');
-  const phoneInput = document.getElementById('quiz-phone');
-  const emailInput = document.getElementById('quiz-email');
-  const policyCheckbox = document.getElementById('quiz-policy');
-
-  if (!nameInput || !phoneInput || !emailInput || !policyCheckbox) {
-    console.error("Один из элементов формы не найден!");
-    return;
-  }
-
-  formQuiz.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    answersObj.step4.name = nameInput.value.trim();
-    answersObj.step4.phone = phoneInput.value.trim();
-    answersObj.step4.email = emailInput.value.trim();
-
-    if (!answersObj.step4.name || !answersObj.step4.phone || !answersObj.step4.email) {
-      alert("Пожалуйста, заполните все поля.");
-      return;
-    }
-
-    if (!policyCheckbox.checked) {
-      alert("Дайте согласие на обработку персональных данных.");
-      return;
-    }
-
-    postData(answersObj)
-      .then(res => res.json())
-      .then(res => {
-        if (res.status === "ok") {
-          overlay.style.display = "none";
-          quizBody.style.display = "none";
-          quizStart.style.display = "block";
-          formQuiz.reset();
-          alert(res.message);
-        } else if (res.status === "error") {
-          alert(res.message);
-        }
-      })
-      .catch(error => {
-        console.error("Ошибка при отправке формы:", error);
-        alert("Небходимо подключить серверную часть");
-      });
-  });
-
-  function postData(body) {
-    return fetch("./server.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body)
-    });
-  }
-});
-
-//------------------------------------------------------------------------Quiz
+//document.addEventListener('DOMContentLoaded', () => {
+//  const quizBody = document.querySelector('.quiz__body');
+//  const quizStart = document.querySelector('.quiz__start');
+//  const formQuiz = document.querySelector('.quiz-form');
+//  const formItems = formQuiz.querySelectorAll('fieldset');
+//  const formBtnNext = formQuiz.querySelectorAll('.quiz-form__btn-next');
+//  const formBtnPrev = formQuiz.querySelectorAll('.quiz-form__btn-prev');
+//  const overlay = document.querySelector('.overlay');
+//  const pastTestButton = document.querySelector('.pas__test-button');
+//
+//  const answersObj = {
+//    step0: { question: '', answers: [] },
+//    step1: { question: '', answers: [] },
+//    step2: { question: '', answers: [] },
+//    step3: { question: '', answers: [] },
+//    step4: { name: "", phone: "", email: "", call: "" },
+//  };
+//
+//  let questionNumb = 1;
+//
+//  // Инициализация квиза
+//  quizBody.style.display = "none";
+//  overlay.style.display = "none";
+//
+//  quizStart.addEventListener('click', () => {
+//    quizBody.style.display = "block";
+//    quizStart.style.display = "none";
+//    questionCounter(1);
+//  });
+//
+//  pastTestButton.addEventListener('click', () => {
+//    resetQuiz();
+//    overlay.style.display = "block";
+//    quizBody.style.display = "block";
+//  });
+//
+//  function questionCounter(index) {
+//    const quizIndicator = document.querySelector('.quiz-indicator');
+//    quizIndicator.innerHTML = `${index} / ${formItems.length}`;
+//
+//    const progress = document.querySelector(".quiz__progress-inner");
+//    progress.style.width = `${Math.round((index / formItems.length) * 100)}%`;
+//  }
+//
+//  function resetQuiz() {
+//    formItems.forEach((formItem, index) => {
+//      formItem.style.display = index === 0 ? "block" : "none";
+//      const inputs = formItem.querySelectorAll("input");
+//      inputs.forEach(input => {
+//        input.checked = false;
+//        input.parentNode.classList.remove("active-radio", "active-checkbox");
+//      });
+//    });
+//    formBtnNext.forEach(btn => btn.disabled = true);
+//    questionNumb = 1;
+//    questionCounter(questionNumb);
+//  }
+//
+//  formBtnPrev.forEach((btn, i) => {
+//    btn.addEventListener('click', (event) => {
+//      event.preventDefault();
+//      formItems[i + 1].style.display = "none";
+//      formItems[i].style.display = "block";
+//      questionNumb--;
+//      questionCounter(questionNumb);
+//    });
+//  });
+//
+//  formBtnNext.forEach((btn, btnIndex) => {
+//    btn.addEventListener('click', (event) => {
+//      event.preventDefault();
+//      formItems[btnIndex].style.display = "none";
+//      formItems[btnIndex + 1].style.display = "block";
+//      questionNumb++;
+//      questionCounter(questionNumb);
+//    });
+//    btn.disabled = true;
+//  });
+//
+//  formItems.forEach((formItem, formItemIndex) => {
+//    if (formItemIndex === 0) {
+//      formItem.style.display = "block";
+//    } else {
+//      formItem.style.display = "none";
+//    }
+//
+//    if (formItemIndex !== formItems.length - 1) {
+//      const itemTitle = formItem.querySelector('.quiz-form__title');
+//      answersObj[`step${formItemIndex}`].question = itemTitle.textContent;
+//
+//      formItem.addEventListener('change', (event) => {
+//        const target = event.target;
+//        const inputsChecked = formItem.querySelectorAll("input:checked");
+//
+//        answersObj[`step${formItemIndex}`].answers = Array.from(inputsChecked).map(input => input.value);
+//        formBtnNext[formItemIndex].disabled = inputsChecked.length === 0;
+//
+//        if (target.classList.contains("quiz-form__radio")) {
+//          formItem.querySelectorAll(".quiz-form__radio").forEach(input => {
+//            input.parentNode.classList.toggle("active-radio", input === target);
+//          });
+//        } else if (target.classList.contains("quiz-form__checkbox")) {
+//          target.parentNode.classList.toggle("active-checkbox");
+//        }
+//      });
+//    }
+//  });
+//
+//  const nameInput = document.getElementById('quiz-name');
+//  const phoneInput = document.getElementById('quiz-phone');
+//  const emailInput = document.getElementById('quiz-email');
+//  const policyCheckbox = document.getElementById('quiz-policy');
+//
+//  if (!nameInput || !phoneInput || !emailInput || !policyCheckbox) {
+//    console.error("Один из элементов формы не найден!");
+//    return;
+//  }
+//
+//  formQuiz.addEventListener('submit', (event) => {
+//    event.preventDefault();
+//
+//    answersObj.step4.name = nameInput.value.trim();
+//    answersObj.step4.phone = phoneInput.value.trim();
+//    answersObj.step4.email = emailInput.value.trim();
+//
+//    if (!answersObj.step4.name || !answersObj.step4.phone || !answersObj.step4.email) {
+//      alert("Пожалуйста, заполните все поля.");
+//      return;
+//    }
+//
+//    if (!policyCheckbox.checked) {
+//      alert("Дайте согласие на обработку персональных данных.");
+//      return;
+//    }
+//
+//    postData(answersObj)
+//      .then(res => res.json())
+//      .then(res => {
+//        if (res.status === "ok") {
+//          overlay.style.display = "none";
+//          quizBody.style.display = "none";
+//          quizStart.style.display = "block";
+//          formQuiz.reset();
+//          alert(res.message);
+//        } else if (res.status === "error") {
+//          alert(res.message);
+//        }
+//      })
+//      .catch(error => {
+//        console.error("Ошибка при отправке формы:", error);
+//        alert("Небходимо подключить серверную часть");
+//      });
+//  });
+//
+//  function postData(body) {
+//    return fetch("./server.php", {
+//      method: "POST",
+//      headers: { "Content-Type": "application/json" },
+//      body: JSON.stringify(body)
+//    });
+//  }
+//});
+//
+////------------------------------------------------------------------------Quiz

@@ -1,0 +1,64 @@
+/*----------------------------------contacts--------------------------------*/
+.contacts__content {
+  position: relative;
+}
+.contacts__map iframe {
+  border-radius: var(--border-radius-small);
+}
+@media (max-width: 768px) {
+  .contacts__map {
+    margin-bottom: 8px;
+  }
+}
+.contacts__block {
+  border-radius: 40px 40px 40px 16px;
+  background-color: var(--color-white);
+  padding: 32px;
+  max-width: 390px;
+  position: absolute;
+  top: 150px;
+  right: 20%;
+  box-shadow: 0 0 16px 0 rgba(17, 31, 57, 0.1);
+}
+.contacts__block a {
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+@media (max-width: 768px) {
+  .contacts__block a {
+    margin-bottom: 8px;
+  }
+}
+.contacts__block address {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-family: var(--font-family-m);
+  line-height: 133%;
+}
+@media (max-width: 768px) {
+  .contacts__block address {
+    margin-bottom: 8px;
+    align-items: start;
+  }
+}
+.contacts__block h3 {
+  margin-bottom: 5px;
+  line-height: 147%;
+}
+.contacts__block p {
+  font-weight: 600;
+  font-family: var(--font-family-m);
+  line-height: 133%;
+}
+@media (max-width: 768px) {
+  .contacts__block {
+    position: static;
+    max-width: 100%;
+    padding: 24px;
+  }
+}
+
+/*----------------------------------contacts--------------------------------*/

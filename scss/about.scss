@@ -1,0 +1,133 @@
+/*----------------------------------about--------------------------------*/
+@use 'mixins' as *;
+.about {
+    &__blocks {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px 24px;
+        @include table {
+            gap: 16px;
+        }
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+    &__block {
+        background-color: var(--color-white);
+        border-radius: var(--border-radius);
+        position: relative;
+        flex-basis: 336px;
+        &_img {
+            img {
+                width: 100%;
+                border-top-left-radius: var(--border-radius);
+                border-top-right-radius: var(--border-radius);
+                @include table {
+                    border-top-left-radius: 32px;
+                    border-top-right-radius: 32px;
+                }
+            }
+        }
+        &_info {
+            padding: 50px 20px 50px 30px;
+            @include table {
+                padding: 20px;
+            }
+        }
+        h3 {
+            @include fluid-text(16, 20);
+            line-height: 140%;
+            margin-bottom: 10px;
+        }
+        p {
+            font-weight: 500;
+            @include fluid-text(14, 15);
+            line-height: 147%;
+            font-family: var(--font-family-m);
+        }
+        &_star1 {
+            position: absolute;
+            top: -50px;
+            right: -65px;
+            @include table {
+                width: 80px;
+                top: -32px;
+                right: -46px;
+            }
+        }
+        &_star2 {
+            position: absolute;
+            top: -75px;
+            right: 27px;
+            transform: rotate(280deg);
+            @include mobile {
+                width: 100px;
+                top: -53px;
+                right: 27px;
+            }
+        }
+        &_star3 {
+            position: absolute;
+            bottom: -100px;
+            right: -28px;
+            transform: rotate(280deg);
+            @include mobile {
+                width: 120px;
+                bottom: -60px;
+                right: -38px;
+            }
+        }
+        &_star4 {
+            position: absolute;
+            top: 40px;
+            right: -74px;
+            transform: rotate(-82deg);
+            @include table {
+                width: 100px;
+            }
+            @include mobile {
+                top: 95px;
+                left: -50px;
+            }
+        }
+        &_icon1 {
+            position: absolute;
+            right: 50px;
+            bottom: -22px;
+            @include mobile {
+                right: 40px;
+                top: 10px;
+                width: 30px;
+            }
+        }
+        &_icon2 {
+            position: absolute;
+            top: -10px;
+            right: 50px;
+            @include mobile {
+                top: 10px;
+                width: 30px;
+                right: 10px;
+            }
+        }
+        &--mod {
+            margin-top: -150px;
+            .about__block_info {
+                padding: 55px 24px 90px 24px;
+                @include mobile {
+                    padding: 24px;
+                }
+            }
+            @include table {
+                margin-top: 0px;
+            }
+        }
+        @include table {
+            overflow: hidden;
+            flex-basis: 100%;
+            border-radius: 32px;
+        }
+    }
+}
+/*----------------------------------about--------------------------------*/

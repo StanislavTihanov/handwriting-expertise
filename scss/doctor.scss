@@ -1,0 +1,270 @@
+/*----------------------------------doctor--------------------------------*/
+@use 'mixins' as *;
+.doctor {
+    padding-top: 40px;
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px 48px;
+        @include table {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    &__photo {
+        border-radius: 160px 180px 160px 40px;
+        background: linear-gradient(45deg, #c3f0f3 32.68%, #a9d9e6 100%);
+        padding: 30px 43px 0px 43px;
+        overflow: hidden;
+        border: 1px solid var(--color-white);
+        img {
+            max-width: 230px;
+            @include mobile {
+                max-width: 185px;
+            }
+        }
+    }
+    &__info {
+        margin-bottom: 32px;
+    }
+    &__blocks {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-bottom: 32px;
+        @include mobile {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 0px;
+        }
+    }
+    &__block {
+        display: flex;
+        gap: 10px;
+        padding: 15px;
+        &_icon {
+            flex: none;
+        }
+        &_text {
+            h3 {
+                font-size: 13px;
+                line-height: 138%;
+            }
+            p {
+                @include fluid-text(16, 17);
+                font-weight: 600;
+                line-height: 141%;
+                font-family: var(--font-family-m);
+            }
+            span {
+                color: var(--color-black-text);
+            }
+            a {
+                font-size: 13px;
+                line-height: 138%;
+                color: var(--color-primary);
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                transition: all 0.3s;
+                svg {
+                    transition: all 0.3s;
+                }
+                @include hover {
+                    svg {
+                        transform: translateX(5px);
+                        transition: all 0.3s;
+                    }
+                    svg path {
+                        transition: all 0.3s;
+                    }
+                }
+            }
+        }
+        &_inner {
+            display: flex;
+            gap: 10px;
+        }
+        &:first-child {
+            border-bottom: 1px solid var(--color-primary);
+            padding-left: 0px;
+            .doctor__block_text {
+                a {
+                    @include fluid-text(16, 17);
+                    font-weight: 600;
+                    line-height: 141%;
+                    font-family: var(--font-family-m);
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+            }
+            @include mobile {
+                border-bottom: none;
+                flex-basis: 100%;
+            }
+        }
+        &:nth-child(2) {
+            border-bottom: 1px solid var(--color-primary);
+            border-left: 1px solid var(--color-primary);
+            @include mobile {
+                border-bottom: none;
+                border-left: none;
+                flex-basis: 100%;
+            }
+        }
+        &:nth-child(3) {
+            border-bottom: 1px solid var(--color-primary);
+            border-left: 1px solid var(--color-primary);
+            @include mobile {
+                border-bottom: none;
+                border-left: none;
+                flex-basis: 35%;
+            }
+        }
+        &:nth-child(4) {
+            padding-left: 0px;
+            @include mobile {
+                order: 1;
+            }
+        }
+        &:nth-child(5) {
+            border-left: 1px solid var(--color-primary);
+            @include mobile {
+                border-left: none;
+                flex-basis: 65%;
+            }
+        }
+        &:last-child {
+            border-left: 1px solid var(--color-primary);
+            span {
+                font-weight: 700;
+                font-size: 17px;
+                line-height: 141%;
+                font-family: var(--font-family-base);
+                color: var(--color-secondary);
+            }
+            @include mobile {
+                border-left: none;
+                flex-basis: 100%;
+                order: 1;
+            }
+        }
+        @include desktop {
+            padding: 10px;
+        }
+        @include mobile {
+            padding: 0px;
+            margin-bottom: 16px;
+        }
+    }
+    &__list {
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px 8px;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 133%;
+            font-family: var(--font-family-m);
+            background-color: #EFFAFB;
+            padding: 10px 32px;
+            border-radius: 16px;
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 7px;
+            }
+            @include mobile {
+                padding: 10px 15px;
+            }
+        }
+    }
+    &__links {
+        display: flex;
+        align-items: center;
+        gap: 4px 38px;
+        flex-wrap: wrap;
+        @include mobile {
+            justify-content: center;
+            gap: 4px;
+        }
+    }
+    &__link {
+        position: relative;
+        background-color: var(--color-primary-hover);
+        padding: 8px 16px;
+        border-radius: var(--border-radius-small);
+        font-weight: 400;
+        transition: all 0.3s;
+        text-align: center;
+        display: inline;
+        @include hover {
+            transition: all 0.3s;
+            color: var(--color-white);
+            background-color: var(--color-primary);
+        }
+        &:not(:last-child) {
+            &::after {
+                position: absolute;
+                content: '';
+                width: 10px;
+                height: 10px;
+                top: 40%;
+                right: -25px;
+                border-radius: 50%;
+                background-color: #96CFD0;
+                @include mobile {
+                    display: none;
+                }
+            }
+        }
+        @include mobile {
+            width: 100%;
+            &:first-child {
+                width: 49%;
+            }
+            &:nth-child(2) {
+                width: 49%;
+            }
+        }
+    }
+}
+.about-doctor {
+     display: flex;
+     justify-content: space-between;
+     gap: 16px 24px;
+    &__block {
+        border: 1px solid #A9D9E6;
+        border-radius: var(--border-radius-small);
+        background-color: var(--color-white);
+        padding: 32px;
+        h3 {
+            @include fluid-text(18, 24);
+            margin-bottom: 24px;
+        }
+        @include mobile {
+            padding: 16px;
+            border-radius: 24px;
+        }
+    }
+    &__item {
+        span {
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+        p {
+            font-family: var(--font-family-m);
+        }
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+    @include mobile {
+        flex-wrap: wrap;
+    }
+}
+/*----------------------------------doctor--------------------------------*/

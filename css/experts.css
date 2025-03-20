@@ -1,0 +1,77 @@
+/*----------------------------------experts--------------------------------*/
+.experts__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px 150px;
+}
+@media (max-width: 992px) {
+  .experts__body {
+    gap: 10px 100px;
+  }
+}
+@media (max-width: 768px) {
+  .experts__body {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.experts__container {
+  min-width: 0;
+  flex-basis: 840px;
+  position: relative;
+  padding-top: 70px;
+}
+.experts__button {
+  max-width: 150px;
+  margin-bottom: 24px;
+  position: absolute;
+  top: 0;
+}
+@media (max-width: 768px) {
+  .experts__button {
+    max-width: 100%;
+    width: 100%;
+    position: static;
+    margin-bottom: 0px;
+  }
+}
+
+.expert {
+  flex-basis: 424px;
+  position: relative;
+}
+.expert__play {
+  position: absolute;
+  top: 30px;
+  right: -110px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+}
+.expert__play svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 992px) {
+  .expert__play {
+    width: 150px;
+  }
+}
+@media (max-width: 768px) {
+  .expert__play {
+    width: 103px;
+    top: 85%;
+    right: 0;
+  }
+  .expert__play svg {
+    width: 30px;
+  }
+}
+.expert img {
+  border-radius: var(--border-radius-small);
+  width: 100%;
+}
+
+/*----------------------------------experts--------------------------------*/

@@ -1,0 +1,108 @@
+/*----------------------------------awards--------------------------------*/
+.awards__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+}
+.awards__body .slider__wrap {
+  min-width: 0;
+  flex-basis: 576px;
+}
+@media (max-width: 992px) {
+  .awards__body .slider__wrap {
+    flex-basis: 350px;
+  }
+}
+@media (max-width: 768px) {
+  .awards__body .slider__wrap {
+    flex-basis: 320px;
+  }
+}
+@media (max-width: 992px) {
+  .awards__body {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.awards__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 30px 10px;
+  flex-basis: 776px;
+  background-color: var(--color-white);
+  padding: 37px 30px 0px 48px;
+  border-radius: 40px 40px 160px 40px;
+  overflow: hidden;
+}
+.awards__info_text {
+  flex-basis: 360px;
+  position: relative;
+  z-index: 2;
+}
+.awards__info_text h3 {
+  margin-bottom: 16px;
+}
+.awards__info_text p {
+  font-weight: 600;
+  font-family: var(--font-family-m);
+  line-height: 140%;
+  margin-bottom: 10px;
+}
+.awards__info_wrapper {
+  flex-basis: 312px;
+}
+.awards__info_photo {
+  border-radius: 200px 24px 200px 200px;
+  background-color: #EEF5F6;
+  padding: 13px 45px 0px 45px;
+}
+.awards__info_photo img {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .awards__info_photo img {
+    max-width: 150px;
+    margin-bottom: -22px;
+  }
+}
+@media (max-width: 768px) {
+  .awards__info_photo {
+    text-align: center;
+    padding: 13px 24px 0px 24px;
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 992px) {
+  .awards__info {
+    padding: 24px 24px 0px 24px;
+    order: 1;
+  }
+}
+@media (max-width: 768px) {
+  .awards__info {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 40px 40px 120px 40px;
+  }
+}
+.awards__images {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.awards__images img {
+  width: 100%;
+}
+@media (max-width: 992px) {
+  .awards__images {
+    gap: 8px;
+  }
+}
+
+/*----------------------------------awards--------------------------------*/

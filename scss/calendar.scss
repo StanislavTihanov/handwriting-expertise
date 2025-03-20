@@ -1,0 +1,152 @@
+/*----------------------------------calendar--------------------------------*/
+@use 'mixins' as *;
+.calendar {
+    margin-bottom: 50px;
+    @include mobile {
+        margin-bottom: 20px;
+    }
+    &__wrapper {
+        padding: 20px;
+        border-radius: var(--border-radius-small);
+        margin-bottom: 16px;
+        @include mobile {
+            padding: 15px;
+            border-radius: 24px;
+        }
+    }
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: 10px 44px;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+    }
+    &__specialization {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+    &__cost {
+        font-weight: 500;
+        line-height: 133%;
+        font-family: var(--font-family-m);
+        span {
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+    }
+    &__body {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+        position: relative;
+    }
+    &__blocks {
+        overflow: hidden;
+        overflow-x: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+        scrollbar-width: none; 
+        -ms-overflow-style: none; 
+    }
+    &__blocks::-webkit-scrollbar {
+        display: none; 
+    }
+    &__block {
+        position: relative;
+        &_top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            span {
+                color: var(--color-primary);
+            }
+        }
+    }
+    &__days {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            top: 40%;
+            right: -30px;
+            background-color: var(--color-primary);
+        }
+    }
+    &__day {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-white);
+        width: 56px;
+        border-radius: 16px;
+        padding: 7px 0px;
+        &--mod {
+            p {
+                color: #EC5906;
+            }
+        }
+    }
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+    &__button {
+        @include mobile {
+            width: 100%;
+        }
+    }
+    &__times {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    &__arrow {
+        background-color: var(--color-white);
+        border-radius: 16px;
+        padding: 18px 24px;
+        position: absolute;
+        right: 10px;
+        top: 32px;
+        cursor: pointer;
+    }
+    &__hour {
+        color: #96CFD0;
+        border: 1px solid #96CFD0;
+        border-radius: 16px;
+        padding: 11px 0px;
+        width: 72px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    p {
+        font-weight: 600;
+        line-height: 133%;
+        font-family: var(--font-family-m);
+        @include fluid-text(14, 15);
+    }
+}
+/*----------------------------------calendar--------------------------------*/

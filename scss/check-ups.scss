@@ -1,0 +1,100 @@
+/*----------------------------------check-ups--------------------------------*/
+@use 'mixins' as *;
+
+.check-ups {
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
+    &__item {
+        border-radius: 40px 120px 40px 80px;
+        box-shadow: 0 1px 8px 0 rgba(29, 114, 86, 0.1);
+        background-color: var(--color-white);
+        padding: 16px;
+        flex-basis: 20%;
+        position: relative;
+        overflow: hidden;
+        min-height: 350px;
+        p {
+            color: var(--color-white);
+            background-color: #72CBD0;
+            border-radius: 24px 120px 120px 120px;
+            padding: 24px 75px 112px 16px;
+            line-height: 141%;
+            margin-bottom: 20px;
+            @include mobile {
+                margin-bottom: 80px;
+            }
+        }
+        img {
+            bottom: 0;
+            right: 0;
+            position: absolute;
+        }
+        &_arrow {
+            background-color: #72CBD0;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 80px 12px 80px 80px;
+            position: absolute;
+            z-index: 2;
+            bottom: 20px;
+            left: 20px;
+        }
+        .arrow__pulse {
+            position: relative;
+            opacity: 1;
+            border: 3px solid var(--color-white);
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            &::after {
+                opacity: 1;
+                border: 1px solid var(--color-white);
+                width: 60px;
+                height: 60px;
+            }
+        }
+        &:nth-child(2) {
+            p {
+                background-color: #6196E5;
+            }
+            .check-ups__item_arrow {
+                background-color: #6196E5;
+            }
+        }
+        &:nth-child(3) {
+            p {
+                background-color: #D98FD4;
+            }
+            .check-ups__item_arrow {
+                background-color: #D98FD4;
+            }
+        }
+        &:nth-child(4) {
+            p {
+                background-color: #76C1E3;
+            }
+            .check-ups__item_arrow {
+                background-color: #76C1E3;
+            }
+        }
+        &:nth-child(5) {
+            p {
+                background-color: #6DB8B9;
+            }
+            .check-ups__item_arrow {
+                background-color: #6DB8B9;
+            } 
+            img {
+                right: -15px;
+            }
+        }
+    }
+}
+/*----------------------------------check-ups--------------------------------*/

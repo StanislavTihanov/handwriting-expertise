@@ -1,0 +1,113 @@
+/*----------------------------------choose--------------------------------*/
+@use 'mixins' as *;
+.choose {
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px 10px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+        @include mobile {
+            margin-bottom: 16px;
+        }
+    }
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px 40px;
+        .choose__block {
+            &:first-child {
+                width: 480px;
+                @include mobile {
+                    width: 100%;
+                }
+            }
+            &:last-child {
+                flex-basis: 350px;
+                .calendar__specialization {
+                    justify-content: start;
+                }
+            }
+        }
+        @include mobile {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    }
+    &__block {
+        .filter__search {
+            margin-bottom: 0px;
+        }
+    }
+    &__doctors {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px 10px;
+        flex-wrap: wrap;
+        .card {
+            width: 32%;
+            @include table {
+                width: 49%;
+            }
+            @include mobile {
+                width: 100%;
+            }
+        }
+        margin-bottom: 64px;
+        @include mobile {
+            margin-bottom: 24px;
+            gap: 15px;
+        }
+    }
+    &__bottom {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        a {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: var( --color-primary);
+            font-size: 13px;
+            transition: all 0.3s;
+            svg {
+                transition: all 0.3s;
+            }
+            @include hover {
+                svg {
+                    transform: translateX(5px);
+                    transition: all 0.3s;
+                }
+                svg path {
+                    transition: all 0.3s;
+                }
+            }
+            @include mobile {
+                display: none;
+            }
+        }
+        @include mobile {
+            .pagination {
+                display: flex;
+            }
+        }
+    }
+    &__reset {
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        white-space: nowrap;
+        input {
+            color: #FE8EA8;
+            background-color: inherit;
+            cursor: pointer;
+            font-weight: 700;
+        }
+    }
+}
+
+/*----------------------------------choose--------------------------------*/

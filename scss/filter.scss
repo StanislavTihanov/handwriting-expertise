@@ -1,0 +1,112 @@
+/*----------------------------------filter--------------------------------*/
+@use 'mixins' as *;
+.filter {
+    &__search {
+        margin-bottom: 24px;
+        display: block;
+        position: relative;
+        width: 100%;
+        input {
+            padding: 12px 24px;
+            border: 1px solid #96CFD0;
+            border-radius: var(--border-radius-small);
+            width: 100%;
+        }
+        &_close {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            display: block;
+        }
+        @include mobile {
+            margin-bottom: 16px;
+        }
+    }
+    &__blocks {
+        display: flex;
+        .button-more {
+            display: none;
+            @include mobile {
+                display: flex;
+                svg {
+                    margin-top: 2px;
+                }
+                &.view {
+                    display: none;
+                }
+            }
+        }
+        .content-more {
+            display: block;
+            @include mobile {
+                display: none;
+                &.view {
+                    display: block;
+                }
+            }
+        }
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+    &__block {
+        width: 100%;
+        h3 {
+            color: var(--color-primary);
+            font-size: 24px;
+            line-height: 133%;
+            margin-bottom: 10px;
+        }
+        a {
+            font-family: var(--font-family-m);
+            font-weight: 600;
+            line-height: 141%;
+            transition: all 0.3s;
+            &:not(:last-child) {
+                margin-bottom: 16px;
+                @include mobile {
+                    margin-bottom: 8px;
+                }
+            }
+            @include hover {
+                color: var(--color-primary);
+                transition: all 0.3s;
+            }
+        }
+        &:not(:last-child) {
+            border-right: 1px solid #96CFD0;
+            padding-right: 24px;
+            @include table {
+                padding-right: 16px;
+            }
+            @include mobile {
+                padding-right: 0px;
+                border-right: none;
+            }
+        }
+        &:not(:first-child) {
+            padding-left: 24px;
+            @include table {
+                padding-left: 16px;
+            }
+            @include mobile {
+                padding-left: 0px;
+            }
+        }
+    }
+    &__item {
+        padding: 16px 0px;
+        &:not(:last-child) {
+            border-bottom: 1px solid #96CFD0;
+        }
+        @include mobile {
+            padding: 8px 0px;
+        }
+    }
+    &__color {
+        color: var(--color-primary);
+    }
+}
+/*----------------------------------filter--------------------------------*/
