@@ -1,0 +1,104 @@
+/*----------------------------------main-section--------------------------------*/
+@use 'mixins' as *;
+.main-section {
+    margin-top: 150px;
+    color: var(--color-white);
+    @include table {
+        margin-top: 50px;
+    }
+    @include mobile {
+        margin-top: 70px;
+    }
+    &__content {
+        position: relative;
+        max-width: 1530px;
+        margin: auto;
+        padding: 0px 60px 30px 60px;
+        @include table {
+            padding: 0px 20px 60px 20px;
+        }
+    }
+    &__body {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        @include table {
+            flex-wrap: wrap;
+        }
+    }
+    &__info {
+        flex-basis: 680px;
+        .button {
+            display: inline;
+            svg {
+                padding-top: 5px;
+            }
+            @include mobile {
+                display: flex;
+            }
+        }
+        &>p {
+            margin-bottom: 40px;
+            max-width: 555px;
+            @include mobile {
+                margin-bottom: 24px;
+            }
+        }
+        h1 {
+            font-weight: 700;
+            @include fluid-text(24, 44);
+            line-height: 160%;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            @include mobile {
+                margin-bottom: 24px;
+            }
+        }
+    }
+    &__blocks {
+        margin-bottom: 60px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        p {
+            padding-left: 50px;
+            position: relative;
+            max-width: 250px;
+            &::before {
+                position: absolute;
+                content: '';
+                width: 40px;
+                height: 2px;
+                top: 8px;
+                left: 0;
+                background-color: var(--color-secondary);
+            }
+        }
+    }
+    &__photo {
+        flex-basis: 690px;
+        width: 100%;
+        margin-top: -100px;
+        @include table {
+            margin-top: 0px;
+            order: -1;
+        }
+    }
+    &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        img {
+            border-radius: var(--border-radius);
+            @include table {
+                border-radius: var(--border-radius-medium);
+            }
+        }
+    }
+}
+
+
+/*----------------------------------main-section--------------------------------*/

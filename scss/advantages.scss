@@ -1,4 +1,40 @@
 /*----------------------------------procedure--------------------------------*/
 @use 'mixins' as *;
-
+.advantages {
+    &__content {
+        h2 {
+            margin-bottom: 60px;
+            @include mobile {
+                margin-bottom: 40px;
+            }
+        }
+    }
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        @include table {
+            grid-template-columns: repeat(2, 1fr); 
+        }
+        @include mobile {
+            grid-template-columns: 1fr; 
+            gap: 10px;
+        }
+    }
+    &__block {
+        border-radius: var(--border-radius-small);
+        box-shadow: var(--box-shadow);
+        padding: 40px;
+        img {
+            margin-bottom: 40px;
+            @include mobile {
+                margin-bottom: 10px;
+                width: 40px;
+            }
+        }
+        @include mobile {
+            padding: 20px;
+        }
+    }
+}
 /*----------------------------------procedure--------------------------------*/

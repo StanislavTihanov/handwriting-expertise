@@ -1,0 +1,27 @@
+/*----------------------------------navigation--------------------------------*/
+.navigation h3 {
+  font-family: var(--font-unbounded);
+  margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 150%;
+}
+.navigation__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.navigation a {
+  text-decoration: underline;
+  font-size: clamp(16px, 1.25vw, 18px);
+  transition: all 0.3s;
+}
+@media (hover: hover) {
+  .navigation a:hover {
+    color: var(--color-primary);
+    transition: all 0.3s;
+  }
+}
+
+/*----------------------------------navigation--------------------------------*/

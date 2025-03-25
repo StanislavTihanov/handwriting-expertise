@@ -1,23 +1,17 @@
 /*----------------------------------menu--------------------------------*/
 @use 'mixins' as *;
 .menu {
+    flex-basis: 1050px;
     &>ul {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 10px;
         li {
-            font-weight: 700;
             line-height: 138%;
             position: relative;
-            @include fluid-text(12, 13);
-            @include hover {
-                .menu__list_wrapper {
-                    display: block;
-                    left: -20px;
-                }
-            }
+            @include fluid-text(14, 16);
         }
     }
     &__link {
@@ -26,25 +20,63 @@
             color: var(--color-primary);
         }
     }
+    &__list {
+        background-color: var(--color-white);
+        box-shadow: 0 0 16px 0 rgba(17, 31, 57, 0.1);
+        border-radius: 24px;
+        padding: 16px;
+        width: 200px;
+        &_wrapper {
+            position: absolute;
+            display: none;
+            @include table {
+                &.open {
+                    display: block;
+                    position: static;
+                }
+            }
+        }
+        @include table {
+            position: static;
+            width: 100%;
+            padding: 10px;
+            border-radius: 16px;
+            margin-top: 10px;
+        }
+        li {
+            font-weight: 600;
+            line-height: 133%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
     &__button {
         cursor: pointer;
-        padding-right: 15px;
+        padding-right: 20px;
         transition: All 0.3s ease 0s;
+        position: relative;
         &::after,
         &::before {
             position: absolute;
             content: '';
-            width: 6px;
-            height: 2px;
-            top: 8px;
+            width: 8px;
+            height: 1px;
+            top: 10px;
             right: 0;
-            background-color: var(--color-black-text);
+            background-color: var(--color-black);
             transition: transform 0.2s ease-out;
             border-radius: 5px;
         }
         &::after {
             transform: rotate(45deg);
-            right: 4px;
+            right: 5px;
         }
         &::before {
             transform: rotate(-45deg);
@@ -60,70 +92,23 @@
                 background-color: var(--color-primary);
             }
             li {
-                color: var(--color-black-text);
+                color: var(--color-black);
+            }
+            .menu__list_wrapper {
+                display: block;
+                left: -20px;
             }
         }
         @include table {
             padding-right: 30px;
-        }
-    }
-    &__list {
-        &_wrapper {
-            position: absolute;
-            display: none;
-            @include table {
-                &.open {
-                    display: block;
-                    position: static;
+            &.open {
+                &::after {
+                    transform: rotate(-45deg);
+                    background-color: var(--color-primary);
                 }
-            }
-        }
-        background-color: var(--color-white);
-        box-shadow: 0 0 16px 0 rgba(17, 31, 57, 0.1);
-        border-radius: 24px;
-        width: 320px;
-        padding: 16px;
-        margin-top: 20px;
-        @include table {
-            position: static;
-            width: 100%;
-            padding: 10px;
-            border-radius: 16px;
-            margin-top: 10px;
-        }
-        li {
-            font-family: var(--font-family-m);
-            font-weight: 600;
-            @include fluid-text(12, 15);
-            line-height: 133%;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            width: 100%;
-            cursor: pointer;
-            position: relative;
-            padding-left: 25px;
-            &:not(:last-child) {
-                margin-bottom: 10px;
-            }
-            &::before {
-                position: absolute;
-                content: '';
-                width: 6px;
-                height: 6px;
-                top: 35%;
-                left: 10px;
-                border-radius: 50%;
-                background-color: #63D7DF;
-            }
-            img {
-                width: 15px;
-                opacity: 0;
-                transition: all 0.3s;
-            }
-            @include hover {
-                img {
-                    opacity: 1;
+                &::before {
+                    transform: rotate(45deg);
+                    background-color: var(--color-primary);
                 }
             }
         }
@@ -135,7 +120,7 @@
         width: 100%;
         height: 100%;
         background: var(--color-white);
-        padding: 50px 20px; 
+        padding: 70px 25px; 
         transition: All 0.5s ease 0s;
         overflow: auto;
         z-index: 9;

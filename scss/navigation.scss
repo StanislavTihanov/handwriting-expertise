@@ -1,0 +1,28 @@
+/*----------------------------------navigation--------------------------------*/
+@use 'mixins' as *;
+.navigation {
+    h3 {
+        font-family: var(--font-unbounded);
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 150%;
+    }
+    &__links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    a {
+        text-decoration: underline;
+        @include fluid-text(16, 18);
+        transition: all 0.3s;
+        @include hover {
+            color: var(--color-primary);
+            transition: all 0.3s;
+        }
+    }
+}
+
+/*----------------------------------navigation--------------------------------*/

@@ -1,0 +1,89 @@
+/*----------------------------------form--------------------------------*/
+@use 'mixins' as *;
+.form {
+    padding: 40px;
+    max-width: 376px;
+    border: 1px solid #D7DEE8;
+    border-radius: var(--border-radius-small);
+    h4 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    p {
+        @include fluid-text(16, 18); 
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    &__input {
+        width: 100%;
+        border: 1px solid #D7DEE8;
+        padding: 18px 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        @include fluid-text(16, 18);
+        &::placeholder {
+            @include fluid-text(16, 18);
+            color: #585858;
+        }
+    }
+    &__button {
+        cursor: pointer;
+        @include fluid-text(16, 18);
+        margin-bottom: 20px;
+    }
+    &__link {
+        display: inline;
+    }
+}
+.checkbox {
+    display: inline-block;
+    &__input {
+        display: none;
+        &:checked + .checkbox__label::after {
+            transform: rotate(45deg) scale(1);
+        }
+    }
+    &__label {
+        @include fluid-text(12, 14);
+        line-height: 140%;
+        display: inline-flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        cursor: pointer;
+        
+        &__text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+        &::before {
+            content: '';
+            align-self: flex-start;
+            flex: 0 0 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 4px;
+            background: var(--color-primary);
+            position: relative;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 12px;
+            border: solid var(--color-white);
+            border-width: 0 2px 2px 0;
+            top: 5px;
+            left: 10px;
+            transform: rotate(45deg) scale(0);
+            transition: transform 0.2s ease-in-out;
+        }
+    }
+}
+/*----------------------------------form--------------------------------*/

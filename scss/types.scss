@@ -1,0 +1,48 @@
+/*----------------------------------navigation--------------------------------*/
+@use 'mixins' as *;
+.types {
+    &__body {
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius-small);
+        padding: 100px 40px;
+        @include mobile {
+            box-shadow: none;
+            padding: 0px;
+        }
+    }
+    &__links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 30px;
+        a {
+            box-shadow: var(--box-shadow);
+            border-radius: 10px;
+            padding: 20px 20px 20px 50px;
+            color: var(--color-primary);
+            text-decoration: underline;
+            position: relative;
+            border: 1px solid #D7DEE8;
+            &::before {
+                position: absolute;
+                content: '';
+                width: 4px;
+                height: 4px;
+                top: 26px;
+                left: 30px;
+                border-radius: 50%;
+                background-color: var(--color-primary);
+            }
+            @include hover {
+                text-decoration: none;
+            }
+            @include mobile {
+                box-shadow: none;
+            }
+        }
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+/*----------------------------------navigation--------------------------------*/

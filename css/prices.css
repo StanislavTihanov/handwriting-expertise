@@ -1,2 +1,120 @@
 /*----------------------------------prices-------------------------------*/
+.prices__content p {
+  margin-bottom: 40px;
+}
+.prices__table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  margin-bottom: 40px;
+}
+.prices__table::-webkit-scrollbar {
+  display: none;
+}
+.prices__info {
+  background-color: #BAECE9;
+  padding: 30px;
+  border-radius: var(--border-radius-small);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.prices__info_block {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-basis: 200px;
+}
+.prices__info_block img {
+  width: 30px;
+  height: 30px;
+}
+.prices__info p {
+  margin-bottom: 0px;
+  flex-basis: 900px;
+  position: relative;
+  z-index: 2;
+}
+.prices__info p a {
+  display: inline;
+}
+.prices__info_img:first-child {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.prices__info_img:last-child {
+  position: absolute;
+  right: 0;
+}
+@media (max-width: 768px) {
+  .prices__info_img:last-child {
+    right: -150px;
+    transform: rotate(-30deg);
+  }
+}
+@media (max-width: 992px) {
+  .prices__info {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .prices__info {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .table {
+    width: 480px;
+    border-collapse: separate;
+  }
+}
+
+.table th, .table td {
+  padding: 40px 0px 40px 40px;
+}
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 40px 0px 40px 20px;
+  }
+}
+
+.table thead th:first-child {
+  border-top-left-radius: var(--border-radius-small);
+  border-bottom-left-radius: var(--border-radius-small);
+}
+
+.table thead th:last-child {
+  border-top-right-radius: var(--border-radius-small);
+  border-bottom-right-radius: var(--border-radius-small);
+}
+
+.table thead th {
+  background-color: #F8F8F8;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table tbody td {
+  text-align: left;
+  border-bottom: 1px solid #EEEEEE;
+}
+.table tbody td:nth-child(2) {
+  font-weight: 700;
+}
+.table tbody td:last-child .button {
+  max-width: 200px;
+  margin-left: auto;
+}
+
 /*----------------------------------prices--------------------------------*/

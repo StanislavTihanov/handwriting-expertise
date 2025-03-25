@@ -1,0 +1,42 @@
+/*----------------------------------global--------------------------------*/
+@use 'mixins' as *;
+.expertise {
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px 10px;
+        position: relative;
+        @include table {
+            flex-wrap: wrap;
+            padding-top: 100px;
+        }
+    }
+    &__info {
+        flex-basis: 690px;
+        h2 {
+            margin-bottom: 40px;
+            text-align: start;
+            @include table {
+                position: absolute;
+                top: 0;
+            }
+        }
+        p {
+            margin-bottom: 40px;
+            @include mobile {
+                margin-bottom: 20px;
+            }
+        }
+        .button {
+            max-width: 340px;
+        }
+        @include table {
+            order: 1;
+        }
+    }
+    .block-images {
+        flex-basis: 640px;
+    }
+}
+
+/*----------------------------------global--------------------------------*/

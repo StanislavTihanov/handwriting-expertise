@@ -1,2 +1,46 @@
 /*----------------------------------procedure--------------------------------*/
+.advantages__content h2 {
+  margin-bottom: 60px;
+}
+@media (max-width: 768px) {
+  .advantages__content h2 {
+    margin-bottom: 40px;
+  }
+}
+.advantages__body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+@media (max-width: 992px) {
+  .advantages__body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .advantages__body {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+.advantages__block {
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--box-shadow);
+  padding: 40px;
+}
+.advantages__block img {
+  margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .advantages__block img {
+    margin-bottom: 10px;
+    width: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .advantages__block {
+    padding: 20px;
+  }
+}
+
 /*----------------------------------procedure--------------------------------*/

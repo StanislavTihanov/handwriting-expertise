@@ -1,0 +1,64 @@
+/*----------------------------------menu--------------------------------*/
+@use 'mixins' as *;
+.stages {
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px 10px;
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+    &__info {
+        flex-basis: 675px;
+        h2 {
+            text-align: start;
+        }
+        p {
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+        @include mobile {
+            flex-basis: 100%;
+        }
+    }
+    ol.stages__list {
+        counter-reset: item;
+        list-style-type: none;
+        padding-left: 0;
+        flex-basis: 675px;
+        border: 1px solid #EEEEEE;
+        border-radius: var(--border-radius-small);
+        padding: 30px 40px 10px 40px;
+        @include mobile {
+            flex-basis: 100%;
+            padding: 20px;
+        }
+    }
+    ol.stages__list li {
+        position: relative;
+        padding-left: 90px;
+        margin-bottom: 20px;
+        &:not(:last-child) {
+            border-bottom: 1px solid #EEEEEE;
+            padding-bottom: 30px;
+        }
+        @include table {
+            padding-left: 60px;
+        }
+    }
+    ol.stages__list li:before {
+        counter-increment: item;
+        content: counter(item, decimal-leading-zero);
+        position: absolute;
+        left: 0;
+        top: 10px;
+        color: var(--color-primary);
+        @include fluid-text(24, 40); 
+        font-weight: 700;
+        font-family: var(--font-unbounded);
+    }
+}
+
+/*----------------------------------menu--------------------------------*/

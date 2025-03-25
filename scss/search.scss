@@ -2,53 +2,10 @@
 @use 'mixins' as *;
 .search {
     position: relative;
-    margin-right: 460px;
-    @include table {
-        margin-right: 0px;
-    }
-    &__btn {
-        background-color: inherit;
-        cursor: pointer;
-        border: 2px solid var(--color-black-text);
-        padding: 10px;
-        border-radius: 50%;
-        @include mobile {
-            border: none;
-            padding: 0px;
-        }
-    }
-    &__btn._act {
-          opacity: 0;
-    }
-    &__box {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-    }
     &__label_input {
         background-color: inherit;
-    }
-    &__label_close {
-        cursor: pointer;
-    }
-    &__window {
-        position: absolute;
-        left: -250px;
-        top: -2px;
-        background-color: var(--color-white);
-        padding: 12px 24px;
-        border-radius: var(--border-radius-small);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.5s;
-        transform: translateX(100%); 
-        z-index: 999;
-        border: 1px solid #D6D6D6;
-        width: 320px;
-        @include mobile {
-            top: -15px;
-            width: 290px;
+        &::placeholder {
+            color: var(--color-black);
         }
     }
     &__label {
@@ -56,16 +13,10 @@
         align-items: center;
         justify-content: space-between;
         gap: 10px;
-        color: var(--color-blue);
-        font-size: 15px;
+        font-size: 16px;
     }
-    &__window._act {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(0); 
-    }
-    &__window--active {
-        border-color: var(--color-primary);
+    @include table {
+        display: none;
     }
 }
    

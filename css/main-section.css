@@ -1,0 +1,120 @@
+/*----------------------------------main-section--------------------------------*/
+.main-section {
+  margin-top: 150px;
+  color: var(--color-white);
+}
+@media (max-width: 992px) {
+  .main-section {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 768px) {
+  .main-section {
+    margin-top: 70px;
+  }
+}
+.main-section__content {
+  position: relative;
+  max-width: 1530px;
+  margin: auto;
+  padding: 0px 60px 30px 60px;
+}
+@media (max-width: 992px) {
+  .main-section__content {
+    padding: 0px 20px 60px 20px;
+  }
+}
+.main-section__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 992px) {
+  .main-section__body {
+    flex-wrap: wrap;
+  }
+}
+.main-section__info {
+  flex-basis: 680px;
+}
+.main-section__info .button {
+  display: inline;
+}
+.main-section__info .button svg {
+  padding-top: 5px;
+}
+@media (max-width: 768px) {
+  .main-section__info .button {
+    display: flex;
+  }
+}
+.main-section__info > p {
+  margin-bottom: 40px;
+  max-width: 555px;
+}
+@media (max-width: 768px) {
+  .main-section__info > p {
+    margin-bottom: 24px;
+  }
+}
+.main-section__info h1 {
+  font-weight: 700;
+  font-size: clamp(24px, 3.0555555556vw, 44px);
+  line-height: 160%;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .main-section__info h1 {
+    margin-bottom: 24px;
+  }
+}
+.main-section__blocks {
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.main-section__blocks p {
+  padding-left: 50px;
+  position: relative;
+  max-width: 250px;
+}
+.main-section__blocks p::before {
+  position: absolute;
+  content: "";
+  width: 40px;
+  height: 2px;
+  top: 8px;
+  left: 0;
+  background-color: var(--color-secondary);
+}
+.main-section__photo {
+  flex-basis: 690px;
+  width: 100%;
+  margin-top: -100px;
+}
+@media (max-width: 992px) {
+  .main-section__photo {
+    margin-top: 0px;
+    order: -1;
+  }
+}
+.main-section__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.main-section__bg img {
+  border-radius: var(--border-radius);
+}
+@media (max-width: 992px) {
+  .main-section__bg img {
+    border-radius: var(--border-radius-medium);
+  }
+}
+
+/*----------------------------------main-section--------------------------------*/

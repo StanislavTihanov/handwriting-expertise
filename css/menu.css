@@ -1,22 +1,18 @@
 /*----------------------------------menu--------------------------------*/
+.menu {
+  flex-basis: 1050px;
+}
 .menu > ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 10px;
 }
 .menu > ul li {
-  font-weight: 700;
   line-height: 138%;
   position: relative;
-  font-size: clamp(12px, 0.9027777778vw, 13px);
-}
-@media (hover: hover) {
-  .menu > ul li:hover .menu__list_wrapper {
-    display: block;
-    left: -20px;
-  }
+  font-size: clamp(14px, 1.1111111111vw, 16px);
 }
 .menu__link {
   transition: All 0.3s ease 0s;
@@ -26,57 +22,12 @@
     color: var(--color-primary);
   }
 }
-.menu__button {
-  cursor: pointer;
-  padding-right: 15px;
-  transition: All 0.3s ease 0s;
-}
-.menu__button::after, .menu__button::before {
-  position: absolute;
-  content: "";
-  width: 6px;
-  height: 2px;
-  top: 8px;
-  right: 0;
-  background-color: var(--color-black-text);
-  transition: transform 0.2s ease-out;
-  border-radius: 5px;
-}
-.menu__button::after {
-  transform: rotate(45deg);
-  right: 4px;
-}
-.menu__button::before {
-  transform: rotate(-45deg);
-}
-@media (hover: hover) {
-  .menu__button:hover {
-    color: var(--color-primary);
-  }
-  .menu__button:hover::after {
-    transform: rotate(-45deg);
-    background-color: var(--color-primary);
-  }
-  .menu__button:hover::before {
-    transform: rotate(45deg);
-    background-color: var(--color-primary);
-  }
-  .menu__button:hover li {
-    color: var(--color-black-text);
-  }
-}
-@media (max-width: 992px) {
-  .menu__button {
-    padding-right: 30px;
-  }
-}
 .menu__list {
   background-color: var(--color-white);
   box-shadow: 0 0 16px 0 rgba(17, 31, 57, 0.1);
   border-radius: 24px;
-  width: 320px;
   padding: 16px;
-  margin-top: 20px;
+  width: 200px;
 }
 .menu__list_wrapper {
   position: absolute;
@@ -98,9 +49,7 @@
   }
 }
 .menu__list li {
-  font-family: var(--font-family-m);
   font-weight: 600;
-  font-size: clamp(12px, 1.0416666667vw, 15px);
   line-height: 133%;
   display: flex;
   align-items: center;
@@ -108,29 +57,65 @@
   width: 100%;
   cursor: pointer;
   position: relative;
-  padding-left: 25px;
 }
 .menu__list li:not(:last-child) {
   margin-bottom: 10px;
 }
-.menu__list li::before {
+.menu__button {
+  cursor: pointer;
+  padding-right: 20px;
+  transition: All 0.3s ease 0s;
+  position: relative;
+}
+.menu__button::after, .menu__button::before {
   position: absolute;
   content: "";
-  width: 6px;
-  height: 6px;
-  top: 35%;
-  left: 10px;
-  border-radius: 50%;
-  background-color: #63D7DF;
+  width: 8px;
+  height: 1px;
+  top: 10px;
+  right: 0;
+  background-color: var(--color-black);
+  transition: transform 0.2s ease-out;
+  border-radius: 5px;
 }
-.menu__list li img {
-  width: 15px;
-  opacity: 0;
-  transition: all 0.3s;
+.menu__button::after {
+  transform: rotate(45deg);
+  right: 5px;
+}
+.menu__button::before {
+  transform: rotate(-45deg);
 }
 @media (hover: hover) {
-  .menu__list li:hover img {
-    opacity: 1;
+  .menu__button:hover {
+    color: var(--color-primary);
+  }
+  .menu__button:hover::after {
+    transform: rotate(-45deg);
+    background-color: var(--color-primary);
+  }
+  .menu__button:hover::before {
+    transform: rotate(45deg);
+    background-color: var(--color-primary);
+  }
+  .menu__button:hover li {
+    color: var(--color-black);
+  }
+  .menu__button:hover .menu__list_wrapper {
+    display: block;
+    left: -20px;
+  }
+}
+@media (max-width: 992px) {
+  .menu__button {
+    padding-right: 30px;
+  }
+  .menu__button.open::after {
+    transform: rotate(-45deg);
+    background-color: var(--color-primary);
+  }
+  .menu__button.open::before {
+    transform: rotate(45deg);
+    background-color: var(--color-primary);
   }
 }
 @media (max-width: 992px) {
@@ -141,7 +126,7 @@
     width: 100%;
     height: 100%;
     background: var(--color-white);
-    padding: 50px 20px;
+    padding: 70px 25px;
     transition: All 0.5s ease 0s;
     overflow: auto;
     z-index: 9;
