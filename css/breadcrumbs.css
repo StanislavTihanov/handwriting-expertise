@@ -1,18 +1,8 @@
 /*----------------------------------breadcrumbs--------------------------------*/
 .breadcrumbs {
-  padding: 60px 0px 60px;
+  padding: 30px 30px 10px 33px;
   position: relative;
   z-index: 2;
-}
-@media (max-width: 992px) {
-  .breadcrumbs {
-    padding: 60px 0px 0px;
-  }
-}
-@media (max-width: 768px) {
-  .breadcrumbs {
-    margin-bottom: 40px;
-  }
 }
 .breadcrumbs__list {
   display: flex;
@@ -33,7 +23,7 @@
   position: absolute;
   content: "";
   width: 2px;
-  height: 8px;
+  height: 6px;
   top: 8px;
   right: 0;
   border-radius: 1px;
@@ -41,7 +31,7 @@
   transform: rotate(45deg);
 }
 .breadcrumbs__item:not(:last-child)::after {
-  top: 3px;
+  top: 4px;
   right: 0;
   transform: rotate(-45deg);
 }
@@ -49,7 +39,7 @@
   font-weight: 600;
   line-height: 133%;
   font-family: var(--font-family-m);
-  color: var(--color-black-text);
+  font-size: clamp(12px, 0.9722222222vw, 14px);
 }
 .breadcrumbs__item_link {
   transition: all 0.3s;

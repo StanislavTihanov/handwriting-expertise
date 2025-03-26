@@ -1,15 +1,9 @@
 /*----------------------------------breadcrumbs--------------------------------*/
 @use 'mixins' as *;
 .breadcrumbs {
-    padding: 60px 0px 60px;
+    padding: 30px 30px 10px 33px;
     position: relative;
     z-index: 2;
-    @include table {
-        padding: 60px 0px 0px;
-    }
-    @include mobile {
-        margin-bottom: 40px;
-    }
     &__list {
         display: flex;
         align-items: center;
@@ -28,7 +22,7 @@
         position: absolute;
         content: '';
         width: 2px;
-        height: 8px;
+        height: 6px;
         top: 8px;
         right: 0;
         border-radius: 1px;
@@ -36,7 +30,7 @@
         transform: rotate(45deg);
     }
     &__item:not(:last-child)::after {
-        top: 3px;
+        top: 4px;
         right: 0;
         transform: rotate(-45deg);
     }
@@ -44,7 +38,7 @@
         font-weight: 600;
         line-height: 133%;
         font-family: var(--font-family-m);
-        color: var(--color-black-text);
+        @include fluid-text(12, 14);
         &_link {
             transition: all 0.3s;
             @include hover {

@@ -1,4 +1,7 @@
 /*----------------------------------navigation--------------------------------*/
+.navigation {
+  padding: 0px 20px;
+}
 .navigation h3 {
   font-family: var(--font-unbounded);
   margin-bottom: 20px;
