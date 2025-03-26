@@ -15,6 +15,9 @@
 .stages__info h2 {
   text-align: start;
 }
+.stages__info p {
+  line-height: 150%;
+}
 .stages__info p:not(:last-child) {
   margin-bottom: 20px;
 }

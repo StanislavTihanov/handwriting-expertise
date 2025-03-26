@@ -43,17 +43,6 @@
 //const timer = setInterval(updateCountdown, 1000);
 //------------------------------------------------------------------------таймер обратного отсчета
 
-
-//------------------------------------------------------------------------появление бекграунда у шапки при прокрутки вниз
-window.addEventListener('scroll', () => {
-  if(pageYOffset > 50) {
-    document.querySelector('.header').classList.add('header__bg');
-  } else {
-    document.querySelector('.header').classList.remove('header__bg');
-  }
-});
-//------------------------------------------------------------------------появление бекграунда у шапки при прокрутки вниз
-
 //------------------------------------------------------------------------выпадающие списки в хедере
 const menuButtons = document.querySelectorAll('.menu__button');
 const menuLists = document.querySelectorAll('.menu__list_wrapper');
@@ -163,69 +152,18 @@ sliders.forEach((slider, index) => {
     },
     breakpoints: {
       320: {
-        slidesPerView: 1.2,
-      },
-      640: {
         slidesPerView: 2,
       },
-      980: {
+      640: {
         slidesPerView: 3,
-      }
-    }
-  });
-});
-
-const twoSlide = document.querySelectorAll('.two-slide');
-twoSlide.forEach((twoSlide, index) => {
-  // Создаем уникальные классы для навигации каждого слайдера
-  const prevButton = `.swiper-button-p-${index + 1}`;
-  const nextButton = `.swiper-button-n-${index + 1}`;
-
-  // Инициализируем Swiper для каждого слайдера
-  new Swiper(twoSlide, {
-    direction: 'horizontal',
-    loop: false,
-    spaceBetween: 24,
-    speed: 1000,
-    autoHeight: false,
-    navigation: {
-      prevEl: prevButton,
-      nextEl: nextButton,
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1.1,
-        spaceBetween: 16,
-      },
-      640: {
-        slidesPerView: 1,
       },
       980: {
-        slidesPerView: 2,
+        slidesPerView: 4,
       }
     }
   });
 });
-const oneSlide = document.querySelectorAll('.one-slide');
-oneSlide.forEach((oneSlide, index) => {
-  // Создаем уникальные классы для навигации каждого слайдера
-  const prevButton = `.swiper-button-pr-${index + 1}`;
-  const nextButton = `.swiper-button-nx-${index + 1}`;
 
-  // Инициализируем Swiper для каждого слайдера
-  new Swiper(oneSlide, {
-    direction: 'horizontal',
-    loop: false,
-    spaceBetween: 20,
-    speed: 1000,
-    autoHeight: false,
-    slidesPerView: 1,
-    navigation: {
-      prevEl: prevButton,
-      nextEl: nextButton,
-    },
-  });
-});
 //------------------------------------------------------------------------Слайдеры
 
 //-----------------------------------------------------------------------поиск врачей по словам

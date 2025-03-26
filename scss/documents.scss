@@ -1,0 +1,45 @@
+/*----------------------------------about--------------------------------*/
+@use 'mixins' as *;
+.documents {
+    &__content {
+        p {
+            margin-bottom: 40px;
+        }
+    }
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+        gap: 20px 30px;
+        @include mobile {
+            gap: 20px;
+        }
+    }
+    &__block {
+        border-radius: var(--border-radius-small);
+        box-shadow: var(--box-shadow);
+        padding: 20px;
+        display: grid;
+        &_top {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            margin-bottom: 40px;
+            margin-left: 5px;
+            p {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    &__downloads {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+    &__download {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/*----------------------------------about--------------------------------*/

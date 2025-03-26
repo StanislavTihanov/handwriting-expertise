@@ -8,76 +8,83 @@
 .tab-labels {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 48px;
-  gap: 16px;
+  padding-bottom: 40px;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
 }
-@media (max-width: 768px) {
-  .tab-labels {
-    flex-wrap: wrap;
-  }
-}
-.tab-labels__inner {
-  display: flex;
-  align-items: center;
-  gap: 15px 30px;
-}
-.tab-labels__yandex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 5px;
-  background-color: var(--color-white);
-  border-radius: var(--border-radius-small);
-  padding: 8px 24px 8px 8px;
-}
-.tab-labels__yandex_info p {
-  margin-bottom: 10px;
-}
-@media (max-width: 768px) {
-  .tab-labels__yandex_info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .tab-labels__yandex_info p {
-    margin-bottom: 0px;
-    margin-right: 5px;
-  }
-}
-@media (max-width: 768px) {
-  .tab-labels__yandex > img {
-    width: 24px;
-  }
+.tab-labels::-webkit-scrollbar {
+  display: none;
 }
 
 .tab-label {
   cursor: pointer;
-  color: #D6D6D6;
-  font-weight: 700;
-  font-size: clamp(24px, 2.7777777778vw, 40px);
-  line-height: 120%;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 150%;
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  padding: 6px 16px;
+  border-radius: 6px;
 }
 
 .tab-content {
   display: none;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
 }
-
-.tab-content .easy__info {
-  flex-basis: 1280px;
+.tab-content .table tbody td {
+  text-align: left;
+  border-bottom: 1px solid #EEEEEE;
 }
-
-.tab-content .easy__image {
-  flex-basis: 600px;
+.tab-content .table tbody td:nth-child(2) {
+  font-weight: 400;
+}
+.tab-content .table tbody td:last-child {
+  font-weight: 700;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .tab-content .table {
+    width: 1000px;
+    border-collapse: separate;
+  }
 }
 
 #tab-1:checked ~ .content-1,
-#tab-2:checked ~ .content-2 {
+#tab-2:checked ~ .content-2,
+#tab-3:checked ~ .content-3,
+#tab-4:checked ~ .content-4,
+#tab-5:checked ~ .content-5,
+#tab-6:checked ~ .content-6,
+#tab-7:checked ~ .content-7,
+#tab-8:checked ~ .content-8,
+#tab-9:checked ~ .content-9,
+#tab-10:checked ~ .content-10,
+#tab-11:checked ~ .content-11,
+#tab-12:checked ~ .content-12,
+#tab-13:checked ~ .content-13 {
   display: block;
 }
 
 #tab-1:checked ~ .tab-labels label[for=tab-1],
-#tab-2:checked ~ .tab-labels label[for=tab-2] {
-  color: var(--color-black-text);
+#tab-2:checked ~ .tab-labels label[for=tab-2],
+#tab-3:checked ~ .tab-labels label[for=tab-3],
+#tab-4:checked ~ .tab-labels label[for=tab-4],
+#tab-5:checked ~ .tab-labels label[for=tab-5],
+#tab-6:checked ~ .tab-labels label[for=tab-6],
+#tab-7:checked ~ .tab-labels label[for=tab-7],
+#tab-8:checked ~ .tab-labels label[for=tab-8],
+#tab-9:checked ~ .tab-labels label[for=tab-9],
+#tab-10:checked ~ .tab-labels label[for=tab-10],
+#tab-11:checked ~ .tab-labels label[for=tab-11],
+#tab-12:checked ~ .tab-labels label[for=tab-12],
+#tab-13:checked ~ .tab-labels label[for=tab-13] {
+  color: var(--color-white);
+  background-color: var(--color-primary);
 }
 
 input[type=radio] {

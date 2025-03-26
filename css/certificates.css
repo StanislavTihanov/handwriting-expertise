@@ -1,0 +1,31 @@
+/*----------------------------------about--------------------------------*/
+.certificates {
+  padding-bottom: 120px;
+}
+.certificates__body {
+  position: relative;
+  padding-bottom: 40px;
+}
+.certificates__body .swiper-button-next,
+.certificates__body .swiper-button-prev {
+  top: 20px;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+}
+
+.slider__image img {
+  border: 1px solid #D7DEE8;
+  border-radius: var(--border-radius-small);
+}
+.slider__buttons {
+  width: 140px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/*----------------------------------about--------------------------------*/

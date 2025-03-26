@@ -1,6 +1,12 @@
 /*----------------------------------footer--------------------------------*/
 @use 'mixins' as *;
 .footer {
+    background-color: #313131;
+    color: var(--color-white);
+    padding-top: 80px;
+    @include mobile {
+        padding-top: 40px;
+    }
     &__wrapper {
         padding: 24px 0px;
     }
@@ -10,219 +16,94 @@
     &__body {
         display: flex;
         justify-content: space-between;
-        gap: 10px;
+        gap: 40px 10px;
         @include table {
             flex-wrap: wrap;
         }
-        @include mobile {
-            display: block;
-        }
     }
     &__block {
-        p,
         address {
-            font-weight: 600;
-            font-family: var(--font-family-m);
-            line-height: 130%;
-            @include fluid-text(13, 15);
+            margin-bottom: 15px;
+        }
+        &_tel {
+            font-weight: 700;
+            @include fluid-text(14, 20);
+            margin-bottom: 15px;
+        }
+        &_email {
+            text-decoration: underline;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        .messengers {
+            justify-content: start;
+            margin-bottom: 10px;
+            a {
+                &:first-child {
+                    border: 1px solid #80ABFF;
+                }
+                &:nth-child(2) {
+                    border: 1px solid #39E8DE;
+                }
+            }
+        }
+        &:first-child {
+            @include mobile {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                flex-wrap: wrap;
+                flex-basis: 100%;
+                .footer__logo {
+                    flex-basis: 100%;
+                    justify-content: center;
+                }
+            }
+        }
+        &:nth-child(2) {
+            @include mobile {
+                width: 48%;
+            }
         }
         &:nth-child(3) {
-            .footer__list {
-                & :last-child {
-                    max-width: 200px;
-                    a {
-                        text-decoration: underline;
-                    }
-                }
+            @include mobile {
+                width: 44%;
             }
         }
     }
     &__title {
-        margin-bottom: 16px;
-        position: relative;
-        display: inline-block;
-        &::after {
-            position: absolute;
-            content: '';
-            width: 10px;
-            height: 3px;
-            top: 50%;
-            right: -20px;
-            background-color: var(--color-black-text);
-            transform: rotate(45deg);
-            display: none;
-            @include mobile {
-                display: block;
-            }
-        }
-        &::before {
-            position: absolute;
-            content: '';
-            width: 10px;
-            height: 3px;
-            top: 50%;
-            right: -27px;
-            background-color: var(--color-black-text);
-            transform: rotate(-45deg);
-            display: none;
-            @include mobile {
-                display: block;
-            }
-        }
-        &.view {
-            &::after {
-                transform: rotate(-45deg);
-            }
-            &::before {
-                transform: rotate(45deg);
-            }
-        }
+        margin-bottom: 20px;
+        font-weight: 700;
+        line-height: 150%;
+        @include fluid-text(14, 18);
     }
     &__list {
         li {
             margin-bottom: 10px;
-            font-weight: 600;
-            font-family: var(--font-family-m);
-            line-height: 130%;
-            @include fluid-text(13, 15);
+            font-weight: 500;
+            line-height: 150%;
+            @include fluid-text(14, 18);
             transition: all 0.3s;
             @include hover {
                 color: var(--color-primary);
-            }
-        }
-        @include mobile {
-            display: none;
-            &.view {
-                display: block;
+                text-decoration: underline;
             }
         }
     }
-    &__tel {
-       margin-bottom: 24px;
-       p {
-          margin-bottom: 8px;
-       }
-       a {
-        transition: all 0.3s;
-        @include hover {
-            color: var(--color-primary);
-        }
-       }
-    }
-    &__row {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px 50px;
-        address {
-            max-width: 210px;
-        }
-        a {
-            display: flex;
-            gap: 10px;
-            font-weight: 600;
-            font-family: var(--font-family-m);
-            line-height: 130%;
-            @include fluid-text(13, 15);
-            transition: all 0.3s;
-            @include hover {
-                color: var(--color-primary);
-            }
-        }
-        &:not(:last-child) {
-            margin-bottom: 24px;
-        }
-        @include mobile {
-            flex-wrap: wrap;
-        }
-        &--mod {
-            address {
-                img {
-                    width: 18px;
-                    height: 20px;
-                }
-            }
-            img {
-                width: 20px;
-                height: 18px;
-            }
-        }
-    }
-    &__box {
-        p {
-            margin-bottom: 16px;
-        }
-    }
-    &__links {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-    }
-
     &__bottom {
         padding: 40px 16px;
         display: flex;
+        justify-content: space-between;
         gap: 16px 40px;
         @include mobile {
             flex-wrap: wrap;
+            justify-content: center;
+        }
+        a {
+            text-decoration: underline;
         }
     }
-    &__requisites {
-        flex-basis: 400px;
-        border-right: 1px solid var(--color-bg);
-        padding-right: 40px;
-        @include mobile {
-            padding-right: 0px;
-            border-right: none;
-            border-bottom: 1px solid var(--color-bg);
-            padding-bottom: 16px;
-        }
-        h3 {
-            margin-bottom: 10px;
-        }
-        p,
-        address {
-            font-weight: 600;
-            font-family: var(--font-family-m);
-            line-height: 130%;
-        }
-        &_info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 16px;
-            @include table {
-                flex-wrap: wrap;
-            }
-        }
-    }
-    &__license {
-        font-weight: 600;
-        font-family: var(--font-family-m);
-        line-height: 130%;
-        flex-basis: 1000px;
-        p {
-            &:not(:last-child) {
-                margin-bottom: 16px;
-            }
-        }
-    }
-    &__info {
-        font-weight: 600;
-        font-family: var(--font-family-m);
-        line-height: 130%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px 24px;
-        p {
-            &:first-child {
-                text-transform: uppercase;
-            }
-        }
-        @include mobile {
-            flex-wrap: wrap;
-        }
-    }
+
 }
 
 

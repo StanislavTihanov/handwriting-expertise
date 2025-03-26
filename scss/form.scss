@@ -5,6 +5,9 @@
     max-width: 376px;
     border: 1px solid #D7DEE8;
     border-radius: var(--border-radius-small);
+    background-color: var(--color-white);
+    position: sticky;
+    top: 170px;
     h4 {
         font-weight: 700;
         font-size: 20px;
@@ -36,6 +39,9 @@
     }
     &__link {
         display: inline;
+    }
+    @include mobile {
+        padding: 20px 25px;
     }
 }
 .checkbox {

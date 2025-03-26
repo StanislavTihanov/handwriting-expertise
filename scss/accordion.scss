@@ -3,7 +3,10 @@
     &__block {
         margin-bottom: 16px;
         background-color: var(--color-white);
-        border-radius: 24px;
+        border-bottom: 1px solid #EEEEEE;
+        &:first-child {
+            border-top: 1px solid #EEEEEE;
+        }
     }
     &__summary {
         list-style: none;
@@ -19,46 +22,19 @@
         justify-content: space-between;
         align-items: center;
         gap: 10px;
-        padding: 24px;
-        border-radius: 24px;
-        span {
-           width: 36px;
-           height: 36px;
-           background-color: inherit;
-           border: 1px solid var(--color-black);
-           display: block;
-           border-radius: 50%;
-           position: relative;
-           transition: transform 0.2s ease-out;
-           flex: none;
-           &::after,
-           &::before {
-               position: absolute;
-               content: '';
-               width: 15px;
-               height: 2px;
-               top: 50%;
-               background-color: var(--color-black);
-               transition: transform 0.2s ease-out;
-           }
-           &::after {
-               left: 10px;
-           }
-           &::before {
-               left: 10px;
-               transform: rotate(90deg);
-           }
+        padding: 24px 24px 24px 0px;
+        transition: all 0.5s;
+        img {
+            transition: all 0.3s;
         }
     }
-    &__details[open] &__summary span {
-        border: 1px solid var(--color-secondary);
+    &__details[open] img {
+        transform: rotate(45deg);
+        transition: all 0.3s;
     }
-    &__details[open] &__summary span::after {
-        background-color: var(--color-secondary);
-    }
-    &__details[open] &__summary span::before {
-        transform: rotate(0deg);
-        background-color: var(--color-secondary);
+    &__details[open] .accordion__title {
+        font-weight: 700;
+        transition: all 0.5s;
     }
     &__content {
         display: grid;
@@ -67,13 +43,9 @@
         background-color: var(--color-white);
         opacity: 0;
         padding-right: 20px;
-        padding: 0px 24px;
-        border-bottom-right-radius: 24px;
-        border-bottom-left-radius: 24px;
+        padding: 0px 24px 0px 0px;
         &_body {
             overflow: hidden;
-            font-weight: 600;
-            font-family: var(--font-family-m);
             line-height: 140%;
         }
     }

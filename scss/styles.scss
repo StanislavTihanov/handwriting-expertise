@@ -8,10 +8,15 @@
 @use 'burger';
 @use 'breadcrumbs';
 @use 'main-section';
+@use 'for-what';
 @use 'navigation';
 @use 'types';
 @use 'expertise';
-@use 'pagination';
+@use 'examples';
+@use 'questions';
+@use 'legal';
+@use 'documents';
+@use 'certificates';
 @use 'about';
 @use 'filtermenu';
 @use 'accordion';
@@ -21,7 +26,6 @@
 @use 'news';
 @use 'contacts';
 @use 'select';
-@use 'reviews';
 @use 'tabs';
 @use 'advantages';
 @use 'theory';

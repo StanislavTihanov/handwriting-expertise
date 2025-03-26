@@ -1,42 +1,43 @@
 /*----------------------------------global--------------------------------*/
 @use 'mixins' as *;
-.expertise {
+.for-what {
     &__body {
         display: flex;
         justify-content: space-between;
-        gap: 40px 10px;
+        gap: 40px 80px;
         position: relative;
+        .block-images {
+            flex-basis: 640px;
+            @include mobile {
+                margin-bottom: 40px;
+            }
+        }
+        @include table {
+            gap: 10px;
+        }
         @include mobile {
             flex-wrap: wrap;
             padding-top: 100px;
         }
     }
     &__info {
-        flex-basis: 690px;
+        flex-basis: 680px;
         h2 {
-            margin-bottom: 40px;
             text-align: start;
             @include mobile {
                 position: absolute;
                 top: 0;
             }
         }
+        h3 {
+            @include fluid-text(16, 18);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
         p {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             line-height: 150%;
-            @include mobile {
-                margin-bottom: 20px;
-            }
         }
-        .button {
-            max-width: 340px;
-        }
-        @include mobile {
-            order: 1;
-        }
-    }
-    .block-images {
-        flex-basis: 640px;
     }
 }
 

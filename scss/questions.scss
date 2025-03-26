@@ -1,0 +1,20 @@
+/*----------------------------------questions-------------------------------*/
+@use 'mixins' as *;
+.questions {
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        @include mobile {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    .accordion {
+        flex-basis: 930px;
+    }
+    &__form {
+        position: relative;
+    }
+}
+/*----------------------------------questions------------------------------*/

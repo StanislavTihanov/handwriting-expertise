@@ -1,0 +1,42 @@
+/*----------------------------------about--------------------------------*/
+.documents__content p {
+  margin-bottom: 40px;
+}
+.documents__body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+  gap: 20px 30px;
+}
+@media (max-width: 768px) {
+  .documents__body {
+    gap: 20px;
+  }
+}
+.documents__block {
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  display: grid;
+}
+.documents__block_top {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 40px;
+  margin-left: 5px;
+}
+.documents__block_top p {
+  margin-bottom: 0px;
+}
+.documents__downloads {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.documents__download {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/*----------------------------------about--------------------------------*/

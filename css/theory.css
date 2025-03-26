@@ -4,10 +4,14 @@
   justify-content: space-between;
   gap: 10px;
 }
+@media (max-width: 768px) {
+  .theory__body {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 .theory__info {
   flex-basis: 954px;
-  flex: 1;
-  min-height: 200vh;
 }
 .theory__info h2 {
   text-align: start;
@@ -17,6 +21,7 @@
 }
 .theory__info p {
   margin-bottom: 40px;
+  line-height: 150%;
 }
 .theory__info h3 {
   font-weight: 700;
@@ -40,6 +45,15 @@
 }
 .theory__box p {
   margin-bottom: 0px;
+}
+@media (max-width: 768px) {
+  .theory__box {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+}
+.theory__form {
+  position: relative;
 }
 
 /*----------------------------------menu--------------------------------*/

@@ -1,0 +1,26 @@
+/*----------------------------------prices-------------------------------*/
+@use 'mixins' as *;
+.examples {
+    &__content {
+        h2 {
+            text-align: start;
+        }
+    }
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px 80px;
+        p {
+            a {
+                display: inline;
+                color: var(--color-primary);
+                text-decoration: underline;
+            }
+        }
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+/*----------------------------------prices-------------------------------*/

@@ -1,0 +1,21 @@
+/*----------------------------------prices-------------------------------*/
+.examples__content h2 {
+  text-align: start;
+}
+.examples__info {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px 80px;
+}
+.examples__info p a {
+  display: inline;
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .examples__info {
+    flex-wrap: wrap;
+  }
+}
+
+/*----------------------------------prices-------------------------------*/
