@@ -1,6 +1,30 @@
 /*----------------------------------questions-------------------------------*/
 @use 'mixins' as *;
 .questions {
+    &__content {
+        h2 {
+            text-align: start;
+        }
+        &--mod {
+            p {
+                margin-bottom: 20px;
+            }
+            .questions__body {
+                box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.1);
+                border-radius: 20px;
+                padding: 80px;
+                @include table {
+                    padding: 20px;
+                }
+            }
+            .questions__form {
+                flex-basis: 450px;
+            }
+        }
+    }
+    &__info {
+        flex-basis: 640px;
+    }
     &__body {
         display: flex;
         justify-content: space-between;
@@ -11,10 +35,32 @@
         }
     }
     .accordion {
-        flex-basis: 930px;
+        flex-basis: 860px;
+        &--mod {
+            flex-basis: 100%;
+        }
     }
     &__form {
         position: relative;
+        flex-basis: 376px;
+    }
+    &__button {
+        margin-top: 60px;
+        .button {
+            display: inline;
+            @include hover {
+                svg {
+                    transform: translateX(-5px);
+                    transition: all 0.3s;
+                }
+            }
+            @include mobile {
+                display: block;
+            }
+        }
+        @include mobile {
+            margin-top: 20px;
+        }
     }
 }
 /*----------------------------------questions------------------------------*/

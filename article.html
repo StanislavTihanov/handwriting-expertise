@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Экспертиза">
+  <meta name="keywords" content="Экспертиза">
+  <meta property="og:title" content="Экспертиза">
+  <meta property="og:url" content="ссылка на сайт">
+  <meta property="og:image:width" content="1000">
+  <meta property="og:image:height" content="500">
+  <meta property="og:description" content="Экспертиза">
+  <meta property="og:image" content="путь к картинке/image.webp">
+  <title>Экспертиза</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body id="body">
+  <div class="wrapper">
+    <header class="header">
+      <div class="header__content _container">
+        <div class="header__body">
+          <a class="header__logo" href="index.html" aria-label="логотип">
+            <img src="images/icons/logo.svg" alt="logo">
+            Всероссийский НИИдокументоведения и архивного дела
+          </a>
+          <div class="burger" aria-label="кнопка открытия меню">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+          </div>
+        </div>
+        <div class="header__bottom">
+          <nav class="menu" aria-label="Основное меню">
+            <ul>
+              <li class="menu__button">
+                <a class="menu__link" href="#!">Услуги</a>
+                <div class="menu__list_wrapper">
+                  <ul class="menu__list">
+                    <li>
+                      <a class="menu__link" href="#!">Услуги</a>
+                    </li>
+                    <li>
+                      <a class="menu__link" href="#!">Услуги</a>
+                    </li>
+                    <li>
+                      <a class="menu__link" href="#!">Услуги</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu__button">
+                <a class="menu__link" href="#!">Оплата</a>
+                <div class="menu__list_wrapper">
+                  <ul class="menu__list">
+                    <li>
+                      <a class="menu__link" href="#!">Оплата</a>
+                    </li>
+                    <li>
+                      <a class="menu__link" href="#!">Оплата</a>
+                    </li>
+                    <li>
+                      <a class="menu__link" href="#!">Оплата</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu__button">
+                <a class="menu__link" href="#">Вопрос / ответ</a>
+                <div class="menu__list_wrapper">
+                  <ul class="menu__list">
+                    <li>
+                      <a class="menu__link" href="#!">Вопрос / ответ</a>
+                    </li>
+                    <li>
+                      <a class="menu__link" href="#!">Вопрос / ответ</a>
+                    </li>
+                    <li>
+                      <a class="menu__link" href="#!">Вопрос / ответ</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="menu__button">
+                <a class="menu__link" href="#">О нас</a>
+                <div class="menu__list_wrapper">
+                  <ul class="menu__list">
+                    <li>
+                      <a class="menu__link" href="#!">О нас</a>
+                    </li>
+                    <li>
+                      <a class="menu__link" href="#!">О нас</a>
+                    </li>
+                    <li>
+                      <a class="menu__link" href="#!">О нас</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li><a class="menu__link" href="#">Законодательство</a></li>
+              <li><a class="menu__link" href="#">Статьи / Блог</a></li>
+              <li><a class="menu__link" href="contacts.html">Контакты</a></li>
+            </ul>
+            <div class="header__buttons">
+              <div class="messengers">
+                <a href="#!">
+                  <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.9998 0.972265L16.8365 16.9207C16.8365 16.9207 16.3944 18.0266 15.1776 17.4957L7.84514 11.8836C8.83069 10.9977 16.4764 4.12383 16.8108 3.81211C17.3276 3.32969 17.0069 3.04258 16.4061 3.40742L5.11272 10.5793L0.75569 9.1125C0.75569 9.1125 0.0697526 8.86914 0.00373695 8.33828C-0.0626693 7.80742 0.777956 7.51992 0.777956 7.51992L18.5401 0.551952C18.5401 0.551952 19.9998 -0.0894538 19.9998 0.972265Z" fill="white" />
+                  </svg>
+                </a>
+                <a href="#!">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.7675 16.6544C6.06363 17.374 7.52189 17.7511 9.00438 17.75C13.8356 17.75 17.75 13.8269 17.75 8.99562C17.75 4.16438 13.8356 0.25 9.00438 0.25C4.17313 0.25 0.25 4.16438 0.25 8.99562C0.25 10.5494 0.6575 11.9931 1.3625 13.2581L0.25 17.75L4.7675 16.6544ZM5.25125 5.1325C5.35316 5.03714 5.47672 4.96797 5.61129 4.93095C5.74586 4.89393 5.88741 4.89018 6.02375 4.92L6.30438 4.97938C6.58438 5.03875 6.81375 5.22563 6.92375 5.48063L7.47563 6.70312C7.54258 6.85016 7.56541 7.01348 7.54134 7.17325C7.51726 7.33301 7.44732 7.48235 7.34 7.60313L7.00062 8.0025C6.94538 8.06738 6.91095 8.14738 6.90181 8.2321C6.89267 8.31682 6.90924 8.40233 6.94938 8.4775C7.95125 10.2775 9.2675 10.8638 9.85312 11.0419C9.93751 11.0691 10.0286 11.0673 10.1118 11.0366C10.195 11.0058 10.2655 10.9481 10.3119 10.8725L10.5581 10.49C10.7956 10.125 11.2631 9.9975 11.7806 10.2525L12.7994 10.7619C13.1906 10.9488 13.3681 11.4069 13.2244 11.815C12.7063 13.3175 11.3819 13.1306 11.3819 13.1306C8.44438 13.0544 6.1425 10.3456 5.14937 8.95312C4.69062 8.29938 4.41062 7.50937 4.49563 6.70312C4.58063 5.905 4.95375 5.40375 5.25125 5.1325Z" fill="white" />
+                  </svg>
+                </a>
+              </div>
+              <a class="header__link" href="tel:+79990000000">
+                <span>+7 (999) 000-00-00</span>
+              </a>
+              <a class="button button-filled" href="#!">Бесплатная консультация</a>
+            </div>
+          </nav>
+          <div class="search">
+            <label class="search__label">
+              <input class="search__label_input" type="text" placeholder="Поиск по сайту">
+              <img src="images/icons/search.svg" alt="search icon">
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="breadcrumbs breadcrumbs--mod _container">
+        <ul class="breadcrumbs__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="#" class="breadcrumbs__item_link">
+              <span itemprop="name">Главная</span>
+            </a>
+            <meta itemprop="position" content="1"/>
+          </li>
+          <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="#" class="breadcrumbs__item_link">
+              <span itemprop="name">О нас</span>
+            </a>
+            <meta itemprop="position" content="2"/>
+          </li>
+          <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="#" class="breadcrumbs__item_link">
+              <span itemprop="name">Новости</span>
+            </a>
+            <meta itemprop="position" content="3"/>
+          </li>
+          <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span itemprop="name">Минстрой утвердил минимальные требования к качеству отделки по договору ДДУ</span>
+            <meta itemprop="position" content="4"/>
+          </li>
+        </ul>
+      </div>
+
+      <article class="article">
+        <div class="article__content _container">
+          <div class="article__body">
+            <section class="article__section">
+              <figure>
+                <img src="images/theory-image.webp" alt="Фото">
+                <figcaption>
+                  <span class="date">03.03.2025</span>
+                  <span class="author"><b>Автор:</b> ВНИИДАД</span>
+                </figcaption>
+              </figure>
+              <h1>Минстрой утвердил минимальные требования</h1>
+              <p>
+                Прежде чем работать над типографикой, Роберт Брингхёрст советует провести исследование материала — 
+                это поможет уловить его логику и определить акценты, которые необходимо подсветить.
+              </p>
+              <h2>Заголовок H2</h2>
+              <p>
+                Прежде чем работать над типографикой, Роберт Брингхёрст советует провести исследование материала — 
+                это поможет уловить его логику и определить акценты, которые необходимо подсветить.
+              </p>
+              <h3>Заголовок H3</h3>
+              <p>
+                Звучит банально, но, к сожалению, это важный шаг, который часто пропускают дизайнеры. Без понимания содержания текста невозможно с ним работать.
+              </p>
+              <p>
+                Роберт Брингхёрст считает, что отношение типографа к тексту должно быть таким же, как театрального режиссёра к пьесе или музыканта к партитуре. Если типограф хочет получить крутой результат, 
+                он должен знать каждую строчку или каждую ноту своего произведения, а значит, без чтения не обойтись.
+              </p>
+              <h4>Фотогалерея вариант 1</h4>
+              <figure class="block-images">
+                <div class="block-images__img">
+                  <img src="images/expertise-image1.webp" alt="photo">
+                </div>
+                <div class="block-images__img">
+                  <img src="images/expertise-image2.webp" alt="photo">
+                </div>
+                <div class="block-images__img">
+                  <img src="images/expertise-image3.webp" alt="photo">
+                </div>
+              </figure>
+              <h3>Подумайте, как отразить логику текста с помощью типографики</h3>
+              <p>
+                Попробуйте составить план материала и прописать тезисы его основных частей, чтобы сложилась общая картина того, о чём там говорится. Задайте себе вопросы: какое настроение текста, какой у него жанр, кто потенциальный читатель?
+              </p>
+              <blockquote>
+                <p>
+                  Полоса набора — карта мышления, а зачастую ещё и карта общественного порядка, при котором она набрана. А образ мыслей и общественный порядок имеют обыкновение меняться — к лучшему или к худшему.
+                </p>
+              </blockquote>
+
+              <h3>Пример маркерованного текста с галочками</h3>
+              <ul class="list-mark">
+                <li>
+                  Межбуквенный интервал должен быть оптимальным для конкретного шрифта и размера. Без засечек — это от 0,1 до 0,2, 
+                  а с засечками — от 0,2 до 0,3. Например, если размер шрифта без засечек 30 пикселей, то межбуквенный интервал — 30 × 0,1 = 3.
+                </li>
+                <li>
+                  Следите, чтобы расстояние между буквами не было больше пробела или меньше внутренних расстояний букв.
+                </li>
+                <li>
+                  Межбуквенный интервал для заголовков и подзаголовков может быть увеличен, чтобы создать более эффектный визуальный образ.
+                </li>
+                <li>
+                  При выборе межбуквенного интервала необходимо учитывать тип направления чтения (слева направо или справа налево), используемый язык и традиции типографского оформления в стране или регионе.
+                </li>
+              </ul>
+              <h4>Фотогалерея вариант 2</h4>
+              <div class="article-slider">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="images/article-img.webp" alt="img">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/article-img.webp" alt="img">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/article-img.webp" alt="img">
+                  </div>
+                </div>
+                <div class="swiper-button-prev">
+                  <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.75 7C19.75 6.80109 19.671 6.61032 19.5303 6.46967C19.3897 6.32902 19.1989 6.25 19 6.25H1C0.801088 6.25 0.610321 6.32902 0.469669 6.46967C0.329018 6.61032 0.25 6.80109 0.25 7C0.25 7.19891 0.329018 7.38968 0.469669 7.53033C0.610321 7.67098 0.801088 7.75 1 7.75H19C19.1989 7.75 19.3897 7.67098 19.5303 7.53033C19.671 7.38968 19.75 7.19891 19.75 7Z" fill="white" />
+                    <path d="M7.53066 0.470072C7.39003 0.329622 7.19941 0.250732 7.00066 0.250732C6.80191 0.250732 6.61129 0.329622 6.47066 0.470072L0.470659 6.47007C0.330209 6.6107 0.25132 6.80132 0.25132 7.00007C0.25132 7.19882 0.330209 7.38945 0.470659 7.53007L6.47066 13.5301C6.61284 13.6626 6.80088 13.7347 6.99518 13.7312C7.18948 13.7278 7.37487 13.6491 7.51228 13.5117C7.64969 13.3743 7.72841 13.1889 7.73184 12.9946C7.73526 12.8003 7.66314 12.6122 7.53066 12.4701L2.06066 7.00007L7.53066 1.53007C7.67111 1.38945 7.75 1.19882 7.75 1.00007C7.75 0.801322 7.67111 0.610698 7.53066 0.470072Z" fill="white" />
+                  </svg>
+                </div>
+                <div class="swiper-button-next">
+                  <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.25 7C0.25 6.80109 0.329018 6.61032 0.46967 6.46967C0.610322 6.32902 0.801088 6.25 1 6.25H19C19.1989 6.25 19.3897 6.32902 19.5303 6.46967C19.671 6.61032 19.75 6.80109 19.75 7C19.75 7.19891 19.671 7.38968 19.5303 7.53033C19.3897 7.67098 19.1989 7.75 19 7.75H1C0.801088 7.75 0.610322 7.67098 0.46967 7.53033C0.329018 7.38968 0.25 7.19891 0.25 7Z" fill="white" />
+                    <path d="M12.4693 0.470072C12.61 0.329622 12.8006 0.250732 12.9993 0.250732C13.1981 0.250732 13.3887 0.329622 13.5293 0.470072L19.5293 6.47007C19.6698 6.6107 19.7487 6.80132 19.7487 7.00007C19.7487 7.19882 19.6698 7.38945 19.5293 7.53007L13.5293 13.5301C13.3872 13.6626 13.1991 13.7347 13.0048 13.7312C12.8105 13.7278 12.6251 13.6491 12.4877 13.5117C12.3503 13.3743 12.2716 13.1889 12.2682 12.9946C12.2647 12.8003 12.3369 12.6122 12.4693 12.4701L17.9393 7.00007L12.4693 1.53007C12.3289 1.38945 12.25 1.19882 12.25 1.00007C12.25 0.801322 12.3289 0.610698 12.4693 0.470072Z" fill="white" />
+                  </svg>
+                </div>
+              </div>
+              <h3>Пример нумерованного текста</h3>
+              <ol class="list-number">
+                <li>
+                  Оптимальный интерлиньяж обеспечивает достаточное пространство между строками, чтобы текст был читаемым. Среднее значение — от 1,2 до 1,5. Если в тексте крупный шрифт — 1 или 1,1, а если мелкий — 1,5 или даже 2. Посчитать это можно так же, как межбуквенный интервал.
+                </li>
+                <li>
+                  Не стоит использовать слишком большой или слишком маленький интерлиньяж: первый может сделать текст неразборчивым, а второй — некрасивым.
+                </li>
+              </ol>
+              <div class="article__download">
+                <div class="article__download_title">
+                  <h4>H4 заголовок - Название документа готового для скачивания.</h4>
+                  <a href="images/test.pdf" download="test.pdf">Скачать файл</a>
+                </div>
+                <div class="article__download_icon">
+                  <img src="images/icons/download-icon.svg" alt="icon">
+                  <span>120 кб</span>
+                </div>
+              </div>
+              <h3>Пример маркированного списка вариант 2 стандартный</h3>
+              <ul class="list-points">
+                <li>
+                  <a href="#!">Например для перечисления услуг</a>
+                </li>
+                <li>
+                  <a href="#!">Например для перечисления услуг</a>
+                </li>
+              </ul>
+              <div class="article__share">
+                <p>Поделиться:</p>
+                <div class="article__massengers">
+                  <a href="#!">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" stroke="#2291FF"/>
+                      <path d="M22.5327 19.2145C22.0939 19.0495 22.0939 18.4193 22.0667 17.9805C21.957 16.4173 22.5055 14.0308 21.8472 13.0162C21.3812 12.4123 19.1316 12.4676 17.7607 12.5501C17.3762 12.6054 16.9102 12.6871 16.581 12.8521C16.2519 13.0171 15.9227 13.2909 15.9227 13.5376C15.9227 13.8939 16.746 13.8395 17.0471 14.3055C17.3762 14.7997 17.3762 15.8687 17.3762 16.7464C17.3762 17.7611 17.2112 19.1057 16.8004 19.1601C16.1694 19.1873 15.813 18.5563 15.4839 18.0902C14.8256 17.1853 14.1673 16.0601 13.6732 14.9629C13.4266 14.3872 13.2888 13.7561 12.9324 13.5095C12.3838 13.125 11.3964 13.0978 10.4362 13.125C9.55852 13.1522 8.29638 13.0425 8.04975 13.5639C7.85753 14.1397 8.26917 14.6882 8.4886 15.1552C9.61293 17.5961 10.8198 19.7359 12.3013 21.7651C13.6732 23.6575 14.9617 25.1662 17.4851 25.9614C18.1986 26.1809 21.325 26.8119 21.9561 25.9614C22.1755 25.6323 22.1211 24.8915 22.2308 24.343C22.3405 23.7944 22.4774 23.2458 22.9988 23.2186C23.4376 23.1914 23.6843 23.575 23.959 23.8497C24.2609 24.1516 24.5076 24.3983 24.727 24.673C25.2483 25.1943 25.7969 25.907 26.4552 26.1817C27.3601 26.5662 28.7592 26.4565 30.0757 26.4012C31.1456 26.374 31.9136 26.1545 31.9961 25.5235C32.0514 25.0293 31.502 24.3166 31.1728 23.905C30.3496 22.8904 29.966 22.5884 29.033 21.6554C28.6214 21.2438 28.1 20.8049 28.1 20.3117C28.0728 20.0097 28.3194 19.7359 28.5389 19.434C29.4991 18.0077 30.4593 16.9931 31.337 15.5115C31.5836 15.0727 32.1603 14.058 31.9408 13.5639C31.6942 13.0153 30.3223 13.1795 29.4718 13.1795C28.3747 13.1795 26.9485 13.0969 26.6737 13.3164C26.1524 13.6727 25.933 14.2494 25.6863 14.7979C25.1378 16.0601 24.397 17.3485 23.629 18.3087C23.3543 18.6379 22.8338 19.3234 22.5318 19.2137L22.5327 19.2145Z" fill="#2291FF"/>
+                    </svg>
+                  </a>
+                  <a href="#!">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" stroke="#2291FF"/>
+                      <path d="M17.3086 23.3124L16.8961 29.1312C17.4873 29.1312 17.7436 28.8762 18.0511 28.5712L20.8248 25.9199L26.5736 30.1299C27.6273 30.7174 28.3698 30.4074 28.6548 29.1599L32.4273 11.4787H32.4286C32.7636 9.91992 31.8661 9.30992 30.8373 9.69242L8.65984 18.1837C7.14734 18.7712 7.16984 19.6149 8.40359 19.9974L14.0736 21.7612L27.2436 13.5199C27.8636 13.1099 28.4273 13.3362 27.9636 13.7474L17.3086 23.3124Z" fill="#2291FF"/>
+                    </svg>  
+                  </a>                  
+                </div>
+              </div>
+            </section>
+            <aside class="article__sidebar list__points">
+              <div class="article__kinds">
+                <h3>Виды услуг</h3>
+                <ul class="list-points">
+                  <li>
+                    <a href="#!">Почерковедческая экспертиза</a>
+                  </li>
+                  <li>
+                    <a href="#!">ТЭД (Техническая Экспертиза Документов)</a>
+                  </li>
+                  <li>
+                    <a href="#!">Лингвистическая экспертиза</a>
+                  </li>
+                  <li>
+                    <a href="#!">Экспертно-правовое сопровождение дел в судах</a>
+                  </li>
+                  <li>
+                    <a href="#!">Исследование объектов искусства</a>
+                  </li>
+                  <li>
+                    <a href="#!">Повышение квалификации</a>
+                  </li>
+                  <li>
+                    <a href="#!">Рецензирование</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="article__callback">
+                <form class="form">
+                  <h3>Бесплатная консультация</h3>
+                  <input class="form__input" type="text" placeholder="Имя">
+                  <input class="form__input" type="text" placeholder="Телефон">
+                  <input class="form__button button" type="submit" value="Бесплатная консультация">
+                  <div class="checkbox">
+                    <input class="checkbox__input" id="formAgreement2" type="checkbox" name="agreement">
+                    <label class="checkbox__label" for="formAgreement2">
+                      <span class="checkbox__text">Соглашаюсь с<a class="form__link" href="policy.html">политикой конфиденциальности</a></span>
+                    </label>
+                  </div>
+                </form>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </article>
+
+      <section class="news">
+        <div class="news__content _container">
+          <h2>Читайте также</h2>
+          <div class="news__body">
+            <a class="news__block" href="#!">
+              <img src="images/news-image.webp" alt="img">
+              <time datetime="2023-03-03">03.03.2025</time>
+              <h3>Минстрой утвердил минимальные требования к качеству отделки по договору ДДУ</h3>
+              <p>Минстрой утвердил минимальные требования к качеству отделки по договору ДДУ отделки ...</p>
+            </a>
+            <a class="news__block" href="#!">
+              <img src="images/news-image.webp" alt="img">
+              <time datetime="2023-03-03">03.03.2025</time>
+              <h3>Минстрой утвердил минимальные требования к качеству отделки по договору ДДУ</h3>
+              <p>Минстрой утвердил минимальные требования к качеству отделки по договору ДДУ отделки ...</p>
+            </a>
+            <a class="news__block" href="#!">
+              <img src="images/news-image.webp" alt="img">
+              <time datetime="2023-03-03">03.03.2025</time>
+              <h3>Минстрой утвердил минимальные требования к качеству отделки по договору ДДУ</h3>
+              <p>Минстрой утвердил минимальные требования к качеству отделки по договору ДДУ отделки ...</p>
+            </a>
+          </div>
+          <div class="news__link">
+            <a class="button" href="#!">
+              Вернуться к списку новостей
+              <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.25 7C0.25 6.80109 0.329018 6.61032 0.46967 6.46967C0.610322 6.32902 0.801088 6.25 1 6.25H19C19.1989 6.25 19.3897 6.32902 19.5303 6.46967C19.671 6.61032 19.75 6.80109 19.75 7C19.75 7.19891 19.671 7.38968 19.5303 7.53033C19.3897 7.67098 19.1989 7.75 19 7.75H1C0.801088 7.75 0.610322 7.67098 0.46967 7.53033C0.329018 7.38968 0.25 7.19891 0.25 7Z" fill="white" />
+                <path d="M12.4693 0.469828C12.61 0.329378 12.8006 0.250488 12.9993 0.250488C13.1981 0.250488 13.3887 0.329378 13.5293 0.469828L19.5293 6.46983C19.6698 6.61045 19.7487 6.80108 19.7487 6.99983C19.7487 7.19858 19.6698 7.3892 19.5293 7.52983L13.5293 13.5298C13.3872 13.6623 13.1991 13.7344 13.0048 13.731C12.8105 13.7276 12.6251 13.6489 12.4877 13.5115C12.3503 13.374 12.2716 13.1887 12.2682 12.9944C12.2647 12.8001 12.3369 12.612 12.4693 12.4698L17.9393 6.99983L12.4693 1.52983C12.3289 1.3892 12.25 1.19858 12.25 0.999828C12.25 0.801078 12.3289 0.610454 12.4693 0.469828Z" fill="white" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__content _container">
+        <div class="footer__body">
+          <div class="footer__block">
+            <a class="footer__logo" href="#!">
+              <img src="images/icons/logo-footer.svg" alt="logo">
+            </a>
+            <ul class="footer__list">
+              <li>ОГРН <span>000000000000</span></li>
+              <li>ИНН <span>000000000</span></li>
+            </ul>
+            <ul class="footer__list">
+              <li><a href="#!">О центре</a></li>
+              <li><a href="#!">Грамоты и награды</a></li>
+              <li><a href="#!">Референс лист</a></li>
+            </ul>
+          </div>
+          <div class="footer__block">
+            <div class="footer__title">
+              <h3>Меню сайта</h3>
+            </div>
+            <ul class="footer__list">
+              <li><a href="#!">Услуги</a></li>
+              <li><a href="#!">Оплата</a></li>
+              <li><a href="#!">Вопрос / ответ</a></li>
+              <li><a href="#!">О нас</a></li>
+              <li><a href="#!">Законодательство</a></li>
+              <li><a href="#!">Статьи / Блок</a></li>
+              <li><a href="#!">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="footer__block">
+            <div class="footer__title">
+              <h3>Для заказчиков</h3>
+            </div>
+            <ul class="footer__list">
+              <li><a href="#!">Новости</a></li>
+              <li><a href="#!">Законодательство</a></li>
+              <li><a href="#!">Файлы для скачивания</a></li>
+              <li><a href="#!">Информационное письмо</a></li>
+            </ul>
+          </div>
+          <div class="footer__block">
+            <div class="footer__title">
+              <h3>Для заказчиков</h3>
+            </div>
+            <address>г. Москва, ул. Название, дом 18, офис 219</address>
+            <a class="footer__block_tel" href="tel:+74950998882">+7 (495) 099-88-82</a>
+            <a class="footer__block_email" href="mailto:clinic@clinicnacpp.ru">clinic@clinicnacpp.ru</a>
+            <div class="messengers">
+              <a href="#!">
+                <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.9998 0.972265L16.8365 16.9207C16.8365 16.9207 16.3944 18.0266 15.1776 17.4957L7.84514 11.8836C8.83069 10.9977 16.4764 4.12383 16.8108 3.81211C17.3276 3.32969 17.0069 3.04258 16.4061 3.40742L5.11272 10.5793L0.75569 9.1125C0.75569 9.1125 0.0697526 8.86914 0.00373695 8.33828C-0.0626693 7.80742 0.777956 7.51992 0.777956 7.51992L18.5401 0.551952C18.5401 0.551952 19.9998 -0.0894538 19.9998 0.972265Z" fill="white" />
+                </svg>
+              </a>
+              <a href="#!">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.7675 16.6544C6.06363 17.374 7.52189 17.7511 9.00438 17.75C13.8356 17.75 17.75 13.8269 17.75 8.99562C17.75 4.16438 13.8356 0.25 9.00438 0.25C4.17313 0.25 0.25 4.16438 0.25 8.99562C0.25 10.5494 0.6575 11.9931 1.3625 13.2581L0.25 17.75L4.7675 16.6544ZM5.25125 5.1325C5.35316 5.03714 5.47672 4.96797 5.61129 4.93095C5.74586 4.89393 5.88741 4.89018 6.02375 4.92L6.30438 4.97938C6.58438 5.03875 6.81375 5.22563 6.92375 5.48063L7.47563 6.70312C7.54258 6.85016 7.56541 7.01348 7.54134 7.17325C7.51726 7.33301 7.44732 7.48235 7.34 7.60313L7.00062 8.0025C6.94538 8.06738 6.91095 8.14738 6.90181 8.2321C6.89267 8.31682 6.90924 8.40233 6.94938 8.4775C7.95125 10.2775 9.2675 10.8638 9.85312 11.0419C9.93751 11.0691 10.0286 11.0673 10.1118 11.0366C10.195 11.0058 10.2655 10.9481 10.3119 10.8725L10.5581 10.49C10.7956 10.125 11.2631 9.9975 11.7806 10.2525L12.7994 10.7619C13.1906 10.9488 13.3681 11.4069 13.2244 11.815C12.7063 13.3175 11.3819 13.1306 11.3819 13.1306C8.44438 13.0544 6.1425 10.3456 5.14937 8.95312C4.69062 8.29938 4.41062 7.50937 4.49563 6.70312C4.58063 5.905 4.95375 5.40375 5.25125 5.1325Z" fill="white" />
+                </svg>
+              </a>
+            </div>
+            <a class="button" href="#!">Бесплатная консультация</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p>© 2025 | Все права защищены</p>
+          <a href="#!">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  <script src="./js/main.js"></script>  
+</body>
+</html>

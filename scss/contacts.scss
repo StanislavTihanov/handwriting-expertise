@@ -1,4 +1,63 @@
 /*----------------------------------contacts--------------------------------*/
 @use 'mixins' as *;
-
+.contacts {
+    h3 {
+        font-weight: 700;
+        @include fluid-text(18, 20);
+        line-height: 150%;
+    }
+    &__top {
+        border: 1px solid #D7DEE8;
+        border-radius: 20px;
+        padding: 40px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 50px;
+        h3 {
+            margin-bottom: 20px;
+        }
+        .messengers {
+            justify-content: start;
+        }
+        a {
+            transition: all 0.3s;
+            @include hover {
+                transition: all 0.3s;
+                color: var(--color-primary);
+            }
+        }
+        @include mobile {
+            flex-wrap: wrap;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    }
+    &__block {
+        flex-basis: 310px;
+    }
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 30px;
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+    &__form {
+        flex-basis: 450px;
+        .form {
+            max-width: 100%;
+        }@include mobile {
+            flex-basis: 100%;
+        }
+    }
+    &__map {
+        flex-basis: 930px;
+        iframe {
+            border-radius: 20px;
+        }
+    }
+}
 /*----------------------------------contacts--------------------------------*/

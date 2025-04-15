@@ -12,6 +12,20 @@ body {
   line-height: 120%;
 }
 
+h1 {
+  font-weight: 700;
+  font-size: clamp(24px, 3.0555555556vw, 44px);
+  line-height: 120%;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: var(--font-unbounded);
+}
+@media (max-width: 768px) {
+  h1 {
+    margin-bottom: 24px;
+  }
+}
+
 h2 {
   font-family: var(--font-unbounded);
   font-weight: 700;
@@ -183,15 +197,15 @@ section {
   }
 }
 
-.list-mark ul {
+.list-mark {
   margin-bottom: 40px;
 }
-.list-mark ul li {
+.list-mark li {
   margin-bottom: 12px;
   padding-left: 40px;
   position: relative;
 }
-.list-mark ul li::before, .list-mark ul li::after {
+.list-mark li::before, .list-mark li::after {
   position: absolute;
   content: "";
   width: 2px;
@@ -201,7 +215,7 @@ section {
   background-color: var(--color-primary);
   transform: rotate(45deg);
 }
-.list-mark ul li::before {
+.list-mark li::before {
   width: 2px;
   height: 6px;
   top: 8px;
@@ -209,15 +223,36 @@ section {
   transform: rotate(-45deg);
 }
 
-.list-number ol {
+.list-number {
   margin-left: 20px;
 }
-.list-number ol li {
+.list-number li {
   margin-bottom: 12px;
 }
-.list-number ol li::marker {
+.list-number li::marker {
   color: var(--color-primary);
   font-weight: 600;
+}
+
+.list-points {
+  margin-left: 20px;
+}
+.list-points li {
+  color: var(--color-primary);
+  padding-left: 15px;
+  position: relative;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+.list-points li::before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  top: 7px;
+  left: 0;
+  background-color: var(--color-primary);
+  border-radius: 50%;
 }
 
 /*----------------------------------global--------------------------------*/

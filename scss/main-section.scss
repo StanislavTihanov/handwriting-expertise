@@ -4,9 +4,6 @@
     margin-top: 150px;
     color: var(--color-white);
     @include table {
-        margin-top: 50px;
-    }
-    @include mobile {
         margin-top: 70px;
     }
     &__wrap {
@@ -96,6 +93,27 @@
         left: 0;
         img {
             border-radius: 40px;
+        }
+    }
+    &--mod {
+        .breadcrumbs {
+            margin-bottom: 60px;
+            @include mobile {
+                margin-bottom: 20px;
+            }
+        }
+        h1 {
+            margin-bottom: 80px;
+            @include mobile {
+                margin-bottom: 40px;
+            }
+        }
+        .main-section__photo {
+            margin-top: -100px;
+            @include table {
+                order: 1;
+                margin-top: 0px;
+            }
         }
     }
 }

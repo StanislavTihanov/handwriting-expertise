@@ -1,7 +1,7 @@
 /*----------------------------------form--------------------------------*/
 .form {
   padding: 40px;
-  max-width: 376px;
+  max-width: 100%;
   border: 1px solid #D7DEE8;
   border-radius: var(--border-radius-small);
   background-color: var(--color-white);

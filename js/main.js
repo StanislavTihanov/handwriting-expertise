@@ -135,10 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // Находим все слайдеры на странице
 const sliders = document.querySelectorAll('.slider');
 sliders.forEach((slider, index) => {
-  // Создаем уникальные классы для навигации каждого слайдера
-  const prevButton = `.swiper-button-prev-${index + 1}`;
-  const nextButton = `.swiper-button-next-${index + 1}`;
-
   // Инициализируем Swiper для каждого слайдера
   new Swiper(slider, {
     direction: 'horizontal',
@@ -147,8 +143,8 @@ sliders.forEach((slider, index) => {
     speed: 1000,
     autoHeight: false,
     navigation: {
-      prevEl: prevButton,
-      nextEl: nextButton,
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
     breakpoints: {
       320: {
@@ -163,156 +159,23 @@ sliders.forEach((slider, index) => {
     }
   });
 });
-
-//------------------------------------------------------------------------Слайдеры
-
-//-----------------------------------------------------------------------поиск врачей по словам
-const searchInput = document.getElementById('searchInput');
-
-if (searchInput) { // Проверяем, существует ли элемент с id="searchInput"
-  searchInput.addEventListener('input', function() {
-    const searchText = this.value.toLowerCase(); // Получаем текст из инпута и приводим к нижнему регистру
-    const filterItems = document.querySelectorAll('.filter__item'); // Находим все блоки .filter__item
-
-    filterItems.forEach(item => {
-      const links = item.querySelectorAll('a'); // Находим все элементы <a> внутри текущего .filter__item
-      const header = item.querySelector('h3'); // Находим заголовок <h3> внутри текущего .filter__item
-
-      let hasMatch = false; // Флаг для проверки наличия совпадений в текущем .filter__item
-
-      links.forEach(link => {
-        const linkText = link.textContent.toLowerCase(); // Получаем текст элемента <a> и приводим к нижнему регистру
-        if (searchText === '' || !linkText.includes(searchText)) {
-          // Если инпут пустой или текст не совпадает, добавляем opacity: 0.5 и убираем filter__color
-          link.style.opacity = '0.5';
-          link.classList.remove('filter__color');
-        } else {
-          // Если текст совпадает, убираем opacity и добавляем filter__color
-          link.style.opacity = '1';
-          link.classList.add('filter__color');
-          hasMatch = true; // Устанавливаем флаг, что есть совпадение
-        }
-      });
-      // Управляем opacity для заголовка <h3>
-      if (hasMatch) {
-        header.style.opacity = '1'; // Если есть совпадение, заголовок остается полностью видимым
-      } else {
-        header.style.opacity = '0.5'; // Если совпадений нет, заголовок становится полупрозрачным
-      }
-    });
-    // Если инпут пустой, возвращаем всем элементам opacity: 1 и убираем highlight
-    if (searchText === '') {
-      const allLinks = document.querySelectorAll('.filter__item a');
-      const allHeaders = document.querySelectorAll('.filter__item h3');
-      allLinks.forEach(link => {
-        link.style.opacity = '1';
-        link.classList.remove('filter__color');
-      });
-      allHeaders.forEach(header => header.style.opacity = '1');
-    }
+const articleSliders = document.querySelectorAll('.article-slider');
+articleSliders.forEach((articleSlider, index) => {
+  // Инициализируем Swiper для каждого слайдера
+  new Swiper(articleSlider, {
+    direction: 'horizontal',
+    loop: true,
+    spaceBetween: 10,
+    speed: 1000,
+    autoHeight: false,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
   });
-}
-//-----------------------------------------------------------------------поиск врачей по словам
-
-
-//-----------------------------------------------------------------------сортировка по атрибутам
-
-class FilterGallery {
-  constructor() {
-    // Проверяем, существует ли элемент с классом filtermenu
-    if (!document.querySelector('.filtermenu')) {
-      return; // Если нет, прекращаем выполнение
-    }
-
-    // Находим элементы меню и контейнер с постами
-    this.filterMenuList = document.querySelectorAll('.filtermenu__list li');
-    this.container = document.querySelector('.filtermenu__container');
-    this.posts = Array.from(this.container.querySelectorAll('.post'));  // Собираем все посты один раз в массив
-    
-    // По умолчанию показываем блок с классом surgery
-    this.updateMenu('filtermenu__title_1');
-    this.updateGallery('filtermenu__title_1');
-    
-    this.filterMenuList.forEach(item => item.addEventListener('click', (event) => this.onClickFilterMenu(event)));
-  }
-
-  onClickFilterMenu(event) {
-    const target = event.target.closest('li');  // Используем closest чтобы найти li
-    const targetFilter = target.getAttribute('data-filter');
-
-    this.updateMenu(targetFilter);
-    this.updateGallery(targetFilter);
-  }
-
-  updateMenu(targetFilter) {
-    this.filterMenuList.forEach(item => item.classList.remove('active_'));
-    const activeItem = Array.from(this.filterMenuList).find(item => item.getAttribute('data-filter') === targetFilter);
-    if (activeItem) activeItem.classList.add('active_');
-  }
-
-  updateGallery(targetFilter) {
-    // Оптимизация через фильтрацию всех постов разом
-    const postsToShow = targetFilter === 'all'
-      ? this.posts
-      : this.posts.filter(post => post.classList.contains(targetFilter));
-    
-    const postsToHide = this.posts.filter(post => !postsToShow.includes(post));
-
-    // Анимация скрытия и показа
-    this.container.style.opacity = 0;
-    setTimeout(() => {
-      postsToHide.forEach(post => post.style.display = 'none');
-      postsToShow.forEach(post => post.style.display = '');
-      this.container.style.opacity = 1;
-    }, 300);
-  }
-}
-
-// Создаем экземпляр FilterGallery только если есть элемент с классом filtermenu
-if (document.querySelector('.filtermenu')) {
-  const filterGallery = new FilterGallery();
-}
-
-
-//-----------------------------------------------------------------------сортировка по атрибутам
-
-//-----------------------------------------------------------------------кон для анимации иконак в блоке ваше здоровье
-document.addEventListener('scroll', () => {
-  // Вызываем функцию обновления позиции иконок с фиктивным событием мыши
-  updateIconsPosition({ clientX: 0, clientY: 0 });
 });
-
-function updateIconsPosition(e) {
-  const icons = document.querySelectorAll('.mission__icon');
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-
-  icons.forEach((icon, index) => {
-    const rect = icon.getBoundingClientRect();
-    const iconX = rect.left + rect.width / 2;
-    const iconY = rect.top + rect.height / 2;
-
-    const deltaX = mouseX - iconX;
-    const deltaY = mouseY - iconY;
-
-    // Настройте силу смещения (можно регулировать)
-    const strength = 0.05;
-
-    // Применяем смещение в зависимости от положения курсора
-    const translateX = deltaX * strength;
-    const translateY = deltaY * strength;
-
-    // Добавляем разные направления для каждой иконки
-    if (index % 2 === 0) {
-      icon.style.transform = `translate(${translateX}px, ${translateY}px)`;
-    } else {
-      icon.style.transform = `translate(${-translateX}px, ${-translateY}px)`;
-    }
-  });
-}
-//-----------------------------------------------------------------------кон для анимации иконак в блоке ваше здоровье
-
-
+//------------------------------------------------------------------------Слайдеры
 
 
 //------------------------------------------------------------------------select выпадающий список
@@ -322,88 +185,67 @@ document.querySelectorAll('.dropdown').forEach(function(dropDownWrapper) {
   const dropDownListItems = dropDownList.querySelectorAll('.dropdown__list_item');
   const dropDownInput = dropDownWrapper.querySelector('.dropdown__input_hidden');
 
-  // Функция для закрытия текущего дропдауна
-  function closeCurrentDropdown() {
-    dropDownList.classList.remove('dropdown__list--active');
-    dropDownBtn.classList.remove('dropdown__button--active');
-  }
-
-  // Открыть/закрыть текущий дропдаун
-  dropDownBtn.addEventListener('click', function (e) {
-    e.stopPropagation(); // Остановить всплытие события
-    e.preventDefault(); // Предотвращаем отправку формы
-    const isActive = dropDownList.classList.contains('dropdown__list--active');
-
-    // Закрываем все дропдауны перед открытием текущего
+  // Функция для закрытия всех дропдаунов
+  function closeAllDropdowns() {
     document.querySelectorAll('.dropdown__list--active').forEach(function(activeList) {
       activeList.classList.remove('dropdown__list--active');
     });
     document.querySelectorAll('.dropdown__button--active').forEach(function(activeButton) {
       activeButton.classList.remove('dropdown__button--active');
     });
+  }
 
-    // Если текущий дропдаун не был активным, открываем его
+  // Функция для переключения текущего дропдауна
+  function toggleCurrentDropdown() {
+    const isActive = dropDownList.classList.contains('dropdown__list--active');
+    closeAllDropdowns();
+    
     if (!isActive) {
       dropDownList.classList.add('dropdown__list--active');
       dropDownBtn.classList.add('dropdown__button--active');
     }
-  });
+  }
 
+  // Открыть/закрыть текущий дропдаун
+  dropDownBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+    toggleCurrentDropdown();
+  });
   // Выбор элемента списка
   dropDownListItems.forEach(function (listItem) {
     listItem.addEventListener('click', function (e) {
-      e.stopPropagation(); // Остановить всплытие события
-      e.preventDefault(); // Предотвращаем отправку формы
+      e.stopPropagation();
+      e.preventDefault();
       dropDownBtn.innerText = this.innerText;
       dropDownBtn.focus();
       dropDownInput.value = this.dataset.value;
-      closeCurrentDropdown(); // Закрываем текущий дропдаун после выбора
+      closeAllDropdowns();
     });
   });
-
   // Закрытие при клике снаружи
   document.addEventListener('click', function (e) {
     if (!dropDownWrapper.contains(e.target)) {
-      closeCurrentDropdown(); // Закрываем только текущий дропдаун
+      closeAllDropdowns();
     }
   });
-
   // Закрытие при нажатии Tab или Escape
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Tab' || e.key === 'Escape') {
-      closeCurrentDropdown(); // Закрываем только текущий дропдаун
+    if (e.key === 'Escape') {
+      closeAllDropdowns();
     }
   });
 });
-
 // Инициализация кнопки после загрузки
-function initMyButton() {
+document.addEventListener('DOMContentLoaded', function() {
   const myButton = document.getElementById('myButton');
   
-  if (myButton && myButton.style.display !== 'none') {
+  if (myButton) {
     myButton.addEventListener('click', function(event) {
       event.preventDefault();
     });
   }
-}
-window.onload = initMyButton;
-//----------------------------------------------------очистка выпадающего списка и других инпутов
-const chooseReset = document.querySelector('.choose__reset');
-if (chooseReset) { // Проверяем, существует ли элемент с классом .choose__reset
-  chooseReset.addEventListener('click', function(e) {
-    // Очищаем все выпадающие списки
-    document.querySelectorAll('.dropdown').forEach(function(dropDownWrapper) {
-      const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
-      const dropDownInput = dropDownWrapper.querySelector('.dropdown__input_hidden');
-
-      // Сбрасываем текст кнопки и значение скрытого input
-      dropDownBtn.innerText = 'выберите'; // Или любой другой текст по умолчанию
-      dropDownInput.value = ''; // Очищаем значение input
-    });
-  });
-}
-//----------------------------------------------------очистка выпадающего списка и других инпутов
-
+});
 //------------------------------------------------------------------------select выпадающий список
 
 //------------------------------------------------------------------------появление контента при клике на кнопку more

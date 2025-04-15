@@ -4,6 +4,33 @@
     padding: 30px 30px 10px 33px;
     position: relative;
     z-index: 2;
+    &--mod {
+        margin-top: 200px;
+        padding: 0px 20px;
+        .breadcrumbs__item:not(:last-child)::after,
+        .breadcrumbs__item:not(:last-child)::before {
+            position: absolute;
+            content: '';
+            width: 1px;
+            height: 6px;
+            top: 8px;
+            right: 0;
+            border-radius: 1px;
+            background-color: var(--color-black);
+            transform: rotate(45deg);
+        }
+        .breadcrumbs__item:not(:last-child)::after {
+            top: 4px;
+            right: 0;
+            transform: rotate(-45deg);
+        }
+        @include mobile {
+            margin-top: 100px;
+            .breadcrumbs__list {
+                justify-content: start;
+            }
+        }
+    }
     &__list {
         display: flex;
         align-items: center;
@@ -21,7 +48,7 @@
     &__item:not(:last-child)::before {
         position: absolute;
         content: '';
-        width: 2px;
+        width: 1px;
         height: 6px;
         top: 8px;
         right: 0;

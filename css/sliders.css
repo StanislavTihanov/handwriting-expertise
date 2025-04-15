@@ -15,4 +15,19 @@
   display: none;
 }
 
+.article-slider {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 40px;
+}
+.article-slider .swiper-button-prev,
+.article-slider .swiper-button-next {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 10px;
+  width: 52px;
+  height: 52px;
+  padding: 15px;
+}
+
 /*---------------------------------------sliders----------------------------*/

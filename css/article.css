@@ -1,0 +1,123 @@
+/*----------------------------------article--------------------------------*/
+.article {
+  padding: 60px 0px;
+}
+.article__content h3 {
+  font-family: var(--font-unbounded);
+  font-weight: 700;
+  font-size: clamp(20px, 1.6666666667vw, 24px);
+  line-height: 140%;
+  margin-bottom: 40px;
+}
+.article__body {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.article__section {
+  flex-basis: 800px;
+  padding: 0px;
+  min-width: 0;
+}
+.article__section img {
+  border-radius: 20px;
+}
+.article__section figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0px 40px;
+}
+.article__section h1 {
+  margin-bottom: 40px;
+}
+.article__section h2 {
+  text-align: start;
+}
+.article__section h4 {
+  font-family: var(--font-unbounded);
+  font-size: clamp(18px, 1.3888888889vw, 20px);
+  line-height: 150%;
+  margin-bottom: 30px;
+}
+.article__section p {
+  margin-bottom: 40px;
+}
+.article__section .block-images {
+  margin-bottom: 40px;
+}
+.article__section blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding: 20px 20px 20px 40px;
+  background-color: #F8F8F8;
+  margin-bottom: 40px;
+}
+.article__section blockquote p {
+  margin-bottom: 0px;
+}
+.article__download {
+  border: 2px solid var(--color-primary);
+  border-radius: 20px;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.article__download h4 {
+  margin-bottom: 10px;
+}
+.article__download_title {
+  flex-basis: 650px;
+}
+.article__download_title a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.article__download_icon {
+  text-align: center;
+}
+.article__download_icon span {
+  display: block;
+  font-size: 16px;
+  line-height: 140%;
+}
+.article__share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+.article__share p {
+  margin-bottom: 0px;
+}
+.article__share a {
+  transition: all 0.3s;
+  display: inline;
+}
+@media (hover: hover) {
+  .article__share a:hover svg {
+    fill: var(--color-primary);
+    stroke: var(--color-white);
+    transition: all 0.3s;
+  }
+}
+.article__sidebar {
+  max-width: 400px;
+}
+.article__kinds {
+  box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 60px;
+}
+.article__kinds h3 {
+  margin-bottom: 20px;
+}
+.article__callback {
+  position: sticky;
+  top: 170px;
+}
+
+/*----------------------------------article--------------------------------*/
